@@ -2,81 +2,127 @@
     font-family: me;
     src: url(fonts/me.woff2);
 }
-/* General Styles */
+
 body {
-    font-family: runda, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: me;
-}
 
-.container {
+
+    
+
+}
+.overlay {
     width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    z-index: 998; /* Ensure it's under mega-menu */
 }
 
 .flex {
     display: flex;
-    align-items: center;
 }
 
-.navigation{
-    background-color: #fff;
+.navigation {
+    /* background-color: yellow; */
     justify-content: space-between;
     padding: 0px 20px;
     position: relative;
-}
-.nav-links{
-    margin-right: 100px;
+    z-index: 5;
 }
 
-.menu{
+.menu {
     justify-content: space-between;
     list-style: none;
-    gap: 20px
+    gap: 20px;
 }
-.menu a{
+
+.menu a {
     text-decoration: none;
     color: #000;
     text-align: center;
     font-size: 13.0909px;
 }
 
-/* Stock and Footer Styles */
 .stock a {
     text-decoration: none;
     color: black;
     width: 70px;
-
 }
 
+.stock {
+    padding: 22px;
+}
 
+.myAccount {
+    font-size: 13px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+    -webkit-transition: color 0.3s, transform 0.3s;
+    -moz-transition: color 0.3s, transform 0.3s;
+    -ms-transition: color 0.3s, transform 0.3s;
+    -o-transition: color 0.3s, transform 0.3s;
+}
+
+.myAccount:hover {
+    color: red;
+    transform: matrix(1,0,0,1,0,0);
+    -webkit-transform: matrix(1,0,0,1,0,0);
+    -moz-transform: matrix(1,0,0,1,0,0);
+    -ms-transform: matrix(1,0,0,1,0,0);
+    -o-transform: matrix(1,0,0,1,0,0);
+}
 
 .mega-menu {
-    position: absolute;
-    width: 100%;
-    top: 50px;
-    left: 326px;
+    position: fixed; /* Change to fixed */
+    width: 100%; /* Adjust width as needed */
+    left: 0;
     display: none;
+    z-index: 999;
+    justify-content: center;
+    overflow-y: auto; /* Add overflow-y to handle vertical overflow */
 }
 
 .mega-menu .dropdown {
-    width: 50%;
-    /* background-color: red; */
+    width: 65%; /* Adjust width for dropdown items */
     display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
+    flex-wrap: wrap; /* Wrap items if necessary */
+    justify-content: center;
     list-style: none;
+    padding: 10px 0;
     margin: 0;
+    gap: 5px;
+    z-index: 999;
 }
 
 .dropdown li {
-    /* width: 50%; */
+    /* Adjust styles for dropdown items if needed */
     margin: auto;
 }
 
+.myAccount {
+    font-size: 13px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+    -webkit-transition: color 0.3s, transform 0.3s;
+    -moz-transition: color 0.3s, transform 0.3s;
+    -ms-transition: color 0.3s, transform 0.3s;
+    -o-transition: color 0.3s, transform 0.3s;
+}
 
-
+.myAccount:hover {
+    color: red;
+    transform: matrix(1,0,0,1,0,0);
+    -webkit-transform: matrix(1,0,0,1,0,0);
+    -moz-transform: matrix(1,0,0,1,0,0);
+    -ms-transform: matrix(1,0,0,1,0,0);
+    -o-transform: matrix(1,0,0,1,0,0);
+}
 
 
 
@@ -178,7 +224,7 @@ footer a {
     transition-timing-function: cubic-bezier(.455,.03,.515,.955);
     text-align: center
 }
-.overlay{
+.overlap{
     height: 100%;
     width: 100%;
     padding-bottom: 2rem;
