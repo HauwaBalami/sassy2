@@ -1,0 +1,301 @@
+@font-face{
+    font-family: me;
+    src: url(fonts/me.woff2);
+}
+/* General Styles */
+body {
+    font-family: runda, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: me;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.navigation{
+    background-color: #fff;
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+}
+.nav-links{
+    margin-right: 100px;
+}
+
+.menu{
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px
+}
+.menu a{
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 13.0909px;
+}
+
+/* Stock and Footer Styles */
+.stock a {
+    text-decoration: none;
+    color: black;
+    width: 70px;
+
+}
+
+
+
+.mega-menu {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 326px;
+    display: none;
+}
+
+.mega-menu .dropdown {
+    width: 50%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown li {
+    /* width: 50%; */
+    margin: auto;
+}
+
+
+
+
+
+
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    line-height: 25px;
+    padding: 8px 30px;
+    margin-top: 50px;
+    font-size: 13.0909px;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-1 h1, .footer-2 h1 {
+    color: black;
+    white-space: nowrap;
+    font-size: .82rem;;
+}
+
+.footer-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+footer a {
+    color: gray;
+    text-decoration: none;
+    font-size: 13.0909px;
+}
+
+.footer-1 ul, .footer-2 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-item ul {
+    padding-left: 0;
+}
+
+.footer-item h1 {
+    margin-bottom: 10px;
+}
+
+.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social img {
+    width: 13px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 370px;
+    margin: auto;
+    padding: 0px 35px;
+}
+
+.grid-item-1{
+    background-image: url(images/Untitled-design-19-scaled-2560x1440_2.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+.grid-item-2{
+    background-image: url(images/Sassi-Holford-Womenswear-SS24-Cannington-5-1.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.btn{
+    display: inline-flex;
+    padding: 1.33333333rem 2.08333333rem;
+    margin: 0 0 1.66666667rem;
+    background-color: transparent;
+    color: #141517;
+    position: relative;
+    font-family: runda, sans-serif;
+    font-size: .83333333rem;
+    font-weight: 700;
+    letter-spacing: .05rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border: 2px solid #141517;
+    cursor: pointer;
+    transition-property: color, opacity, background-color, border-color;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(.455,.03,.515,.955);
+    text-align: center
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.btn:hover {
+    background-color: #141517;
+    color: #fff;
+    transition-duration: .3s;
+}
+.fefe{
+    margin: auto;
+    padding: 25px;
+    
+}
+.fefe-1{
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    margin-top: 65px;
+}
+.fefe-1 p{
+    font-size: 1em;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+    font-family: runda, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.perfmatters-lazy.pmloaded, .perfmatters-lazy.pmloaded>img, .perfmatters-lazy>img.pmloaded, .perfmatters-lazy[data-ll-status=entered] {
+    animation: 500ms pmFadeIn;
+    transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -webkit-animation: 500ms pmFadeIn;
+    -webkit-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -moz-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -ms-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -o-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+.sassi-quote__stamp {
+    position: absolute;
+    bottom: 0.166667rem;
+    right: 0;
+    width: 12.66666667rem;
+    z-index: 1;
+}
+
+.store{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 400px;
+    padding: 30px;
+}
+.store-1{
+    width: 80%;
+}
+
+.store-1-1{
+    width: 90%;
+}
+
+/* .store-1-1 img{
+    width: 466px;
+} */
+
+.store-1-3 a{
+    text-decoration: none;
+    color: black;
+}
+
+.Insta{
+    width: 95%;
+    margin: auto;
+    margin-top: 130px;
+}
+.Insta-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+
+.Insta h1{
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+.Insta-image{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    width: 100%;
+    padding: 12px 0;
+}
+.insta-image-item img{
+    width: 100%;
+}
+/* .insta-image-item{
+    width: 20%;
+} */
+
+.myAccount{
+    font-size: 13px;
+}
+.myAccount:hover{
+    color: red;
+    transform: matrix3d();
+    -webkit-transform: matrix3d();
+    -moz-transform: matrix3d();
+    -ms-transform: matrix3d();
+    -o-transform: matrix3d();
+}
