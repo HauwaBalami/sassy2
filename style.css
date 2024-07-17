@@ -13,10 +13,10 @@ body {
     position: fixed;
     height: 100vh;
     left: 0;
-    top: 87px;
+    top: 120px;
     width: 100%;
     background: #00000045;
-    z-index: 996;
+    z-index: 900;
 }
 .none{
     display: none;
@@ -73,20 +73,28 @@ body {
 }
 
 .mega-menu .dropdown {
-    width: 65%; /* Adjust width for dropdown items */
+    width: 600px;
     display: flex;
-    flex-wrap: wrap; /* Wrap items if necessary */
+    /* flex-wrap: wrap; */
     justify-content: center;
     list-style: none;
     padding: 10px 0;
     margin: 0;
-    gap: 5px;
+    gap: 14px;
     z-index: 999;
+    margin-left: 275px;
 }
+
 
 .dropdown li {
     /* Adjust styles for dropdown items if needed */
     margin: auto;
+}
+
+.dropdown a{
+    font-size: 15.2727px;
+    margin: 13.0909px 0px;
+    font-weight: 800;
 }
 
 .myAccount {
