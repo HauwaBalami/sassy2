@@ -8,21 +8,23 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: me;
-
-
-    
-
 }
 .overlay {
-    width: 100%;
-    height: 100%;
     position: fixed;
+    height: 100vh;
     left: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none; /* Initially hidden */
-    z-index: 998; /* Ensure it's under mega-menu */
+    top: 87px;
+    width: 100%;
+    background: #00000045;
+    z-index: 996;
 }
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}
+   
 
 .flex {
     display: flex;
@@ -186,7 +188,7 @@ footer a {
 .grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    height: 370px;
+    height: 470px;
     margin: auto;
     padding: 0px 35px;
 }
@@ -253,7 +255,7 @@ footer a {
     margin-top: 65px;
 }
 .fefe-1 p{
-    font-size: 1em;
+    font-size: 15.7091px;
     line-height: 1.5;
     position: relative;
     z-index: 2;
@@ -344,4 +346,155 @@ footer a {
     -moz-transform: matrix3d();
     -ms-transform: matrix3d();
     -o-transform: matrix3d();
+}
+
+#sidebar {
+    /* position: absolute; */
+    bottom: 15px;
+    /* right: -631px; Initial state */
+    width: 600px;
+    z-index: 10;
+    background-color: white;
+    transition: right 0.3s ease;
+}
+
+.in {
+    right: -631px; 
+    position: fixed;
+}
+.out{
+    position: fixed;
+    right: 0;
+}
+
+.sidebar-heading{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+    box-shadow: #ffffff;
+    /* height: 30px; */
+}
+.items-holder{
+    background-color: #ffffff;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-color: rgba(202, 199, 199, 0.945);
+    height: 350px;
+    /* width: 230px; */
+}
+.scrollbar{
+    
+    /* height: 400px; */
+    
+    /* background-color: #ffffff; */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    border-bottom: 0.5px solid rgb(230, 225, 225);
+}
+.next{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.sidebar-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+/* .right{
+    
+    right: 0;
+} */
+
+.close-cart{
+   width: 60px;
+   height: 40px; 
+   margin-top: 10px;
+   cursor: pointer;
+   background-color: transparent;
+   border: none;
+}
+.close-img{
+    width: 32px;
+}
+.sidebar-footer{
+    background-color: #f1f1f1;
+    height: 135px;
+}
+.total-price{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 40px;
+}
+.check-basket{
+    margin: 20px 0px 40px 40px;
+    padding-bottom: 180px;
+    display: flex;
+    gap: 20px;
+}
+.go-to-shop{
+    font-size: 12px;
+    font-weight: 800;
+    width: 140px;
+    height: 55px;
+    border: 2px solid black; 
+    /* position: absolute; */
+    bottom: 50px;
+}
+.checkout{
+    font-size: 10px;
+    font-weight: 800;
+    width: 113.92px;
+    height: 48px;
+    margin: 0px 18px 0px 0px;
+    border: 2px solid black;
+
+}
+.basket{
+    font-size: 10px;
+    font-weight: 800;
+    width: 140px;
+    height: 48px;
+    border: 2px solid black;
+}
+.show-try h5{
+    color: #9d9fa3;
+}
+.show-try h5:hover{
+    cursor: pointer;
+}
+.para3 button{
+    width: 200px;
+    height: 48px;
+    font-size: 11px;
+    font-weight: 900;
+    border: 2px solid black;
+    background-color: #ffffff;
+}
+.para3 button:hover{
+    background-color: #141517;
+    color: white;
+}
+/* footer{
+    background-color: blue;
+    height: 70px;
+} */
+.para{
+    display: none;
+}
+.items-spec{
+    margin-bottom: 66px;
+}
+.cart-info-remove .remove {
+    color: red; /* Change text color */
+    font-weight: bold; /* Make text bold */
+    font-size: 16px; /* Change text size */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Add padding */
+    border: 1px solid red; /* Add border */
+    border-radius: 5px; /* Round the corners */
+    background-color: #f9f9f9; /* Change background color */
+}
+.cart-info-remove .remove:hover {
+    background-color: red; /* Change background color on hover */
+    color: white; /* Change text color on hover */
 }

@@ -22,7 +22,7 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Bridal</a></li>
                     <li><a href="#" id="menu">Womenswear</a>
-                        <div class="ovalay">
+                        <div class="overlay none"></div>
                             <div class="mega-menu">
                                 <ul class="dropdown">
                                     <li><a href="#">All</a></li>
@@ -37,7 +37,7 @@
     
                                  </ul>
                             </div>
-                        </div>
+                        
                     
                     
                     </li>
@@ -52,12 +52,30 @@
             <div class="stock flex">
                 <a class="myAccount" href="#">My Account</a>
                 <a href="#"><img src="images/search.png" style="width: 20%; margin-left: 20px;"></a>
-                <a href="#"><img src="images/shopping-bag.png" style="width: 20%;"></a>
+                <img src="images/shopping-bag.png" style="width: 15px; cursor: pointer; height: 15px;"  class="add-cart" id="add-cart">
 
             </div>
 
 
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
         
 
         
@@ -164,6 +182,29 @@
             </div> 
 
         </div>
+
+
+
+
+        
+        <div id="sidebar" class="in">
+            <div class="sidebar-heading">
+                <h3 style="margin-left: 10px;">BAG ITEMS ( 0 )</h3>
+                <button id="close-cart" class="close-cart"><img src="images/close.png"
+                        class="close-img"></button>
+            </div>
+            <div style="padding: 20px;  background-color: #f1f1f1;">
+                <p>Your bag is empty.</p>
+                <button class="go-to-shop none">GO TO THE SHOP</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
 
 
         <footer>
