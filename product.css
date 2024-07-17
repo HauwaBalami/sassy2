@@ -187,7 +187,16 @@ p:hover a{
     object-fit: fill;
 }
 
-
+.pic-arrow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.arrow-holder{
+    position: absolute;
+    right: 10px;
+}
 
 .fix-last{
     margin-bottom: 65px;
