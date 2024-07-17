@@ -18,20 +18,33 @@
   </head>
   <body>
     <div class="container login">
-        <h2>LOGIN OR REGISTER</h2>
+      <h2>LOGIN OR REGISTER</h2>
 
-        <div class="sign-in-out">
-          <div class="login">
-            <h2>LOGIN</h2>
-            <form id="loginForm">
-              <input type="email" id="email" placeholder="E-MAIL"> <br>
-              <input type="password">
-            </form>
-          </div>
-          <div class="register"></div>
+      <div class="sign-in-out">
+        <div class="login">
+          <h2 class="h2">LOGIN</h2>
+          <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" /> <br />
+            <input type="password" placeholder="Password" />
+            <p id="paragraph">Lost your password</p>
+            <button id="submit">LOG IN</button>
+          </form>
         </div>
+        <div class="register">
+          <h2 class="h2">CREATE AN ACCOUNT</h2>
+          <form id="registerForm">
+            <input type="email" id="createEmail" placeholder="Email" /> <br />
+            <input type="password" id="createPassword" placeholder="Password" />
+            <p id="paragraph">
+              Your personal data will be used to support your experience
+              throughout this website, to manage access to your account, and for
+              other purposes described in our privacy policy
+            </p>
+            <button id="submit">REGISTER</button>
+          </form>
+        </div>
+      </div>
     </div>
-
 
     <script src="/js/script.js"></script>
   </body>

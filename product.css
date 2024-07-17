@@ -356,10 +356,7 @@ h2{
     background-color: #141517;
     color: white;
 }
-footer{
-    background-color: blue;
-    height: 70px;
-}
+
 .para{
     display: none;
 }
@@ -418,3 +415,159 @@ footer{
     background-color: hsla(0, 0%, 100%, .3);
     padding: 30px;
 } */
+
+/* NAV */
+.flex {
+    display: flex;
+}
+
+.navigation {
+    /* background-color: yellow; */
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.overlay {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 87px;
+    width: 100%;
+    background: #00000045;
+    z-index: 996;
+}
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}
+   
+
+.menu {
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 13.0909px;
+}
+
+.stock a {
+    text-decoration: none;
+    color: black;
+    width: 72px;
+}
+
+.stock {
+    padding: 22px;
+}
+
+
+.mega-menu {
+    position: fixed; /* Change to fixed */
+    width: 100%; /* Adjust width as needed */
+    left: 0;
+    display: none;
+    z-index: 999;
+    justify-content: center;
+    overflow-y: auto; /* Add overflow-y to handle vertical overflow */
+}
+
+.mega-menu .dropdown {
+    width: 65%; /* Adjust width for dropdown items */
+    display: flex;
+    flex-wrap: wrap; /* Wrap items if necessary */
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    gap: 5px;
+    z-index: 999;
+}
+
+.dropdown li {
+    /* Adjust styles for dropdown items if needed */
+    margin: auto;
+}
+
+.myAccount {
+    font-size: 13.0909px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+    -webkit-transition: color 0.3s, transform 0.3s;
+    -moz-transition: color 0.3s, transform 0.3s;
+    -ms-transition: color 0.3s, transform 0.3s;
+    -o-transition: color 0.3s, transform 0.3s;
+}
+
+.myAccount:hover {
+    transform: matrix(1,0,0,1,0,0);
+    -webkit-transform: matrix(1,0,0,1,0,0);
+    -moz-transform: matrix(1,0,0,1,0,0);
+    -ms-transform: matrix(1,0,0,1,0,0);
+    -o-transform: matrix(1,0,0,1,0,0);
+}
+
+ /* footer */
+ footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    line-height: 25px;
+    padding: 8px 30px;
+    margin-top: 178px;
+    font-size: 13.0909px;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-1 h1, .footer-2 h1 {
+    color: black;
+    white-space: nowrap;
+    font-size: .82rem;;
+}
+
+.footer-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+footer a {
+    color: gray;
+    text-decoration: none;
+    font-size: 13.0909px;
+}
+
+.footer-1 ul, .footer-2 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-item ul {
+    padding-left: 0;
+}
+
+.footer-item h1 {
+    margin-bottom: 10px;
+}
+
+.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social img {
+    width: 13px;
+}

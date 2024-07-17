@@ -120,13 +120,13 @@ $(document).ready(function () {
         $(this).addClass('selected');
         selectedSize = $(this).data('size');
 
-        if(selectedSize === 14 || 16 || 18 ){
-            $('.add-cart').hide()
-            $('.js-register').show()    
-        }else{
-            $('.js-register').hide()
-            $('.add-cart').show() 
-        }
+        // if(selectedSize === 14 || 16 || 18 ){
+        //     $('.add-cart').hide()
+        //     $('.js-register').show()    
+        // }else{
+        //     $('.js-register').hide()
+        //     $('.add-cart').show() 
+        // }
 
         
         
@@ -173,6 +173,45 @@ $(document).ready(function () {
         // Remove item from the DOM
         $(this).closest('.scrollbar').remove();
     });
+
+
+
+
+    //script for NAv//
+
+    let menuTimeout;
+
+    $("#menu").hover(function() {
+        // On mouse enter
+        clearTimeout(menuTimeout); // Clear any existing timeout
+        $(".overlay").addClass('block'); 
+        $(".mega-menu").stop(true, true).slideDown(100, function(){
+            $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
+        });
+    }, function() {
+        // On mouse leave
+        menuTimeout = setTimeout(function() {
+            $(".overlay").removeClass('block'); // Hide overlay
+            $(".mega-menu").stop(true, true).slideUp(100, function(){
+                $(".navigation").animate({ height: '50px' }, 300);
+            });
+        }, 300); // Adjust the delay as needed (300ms in this case)
+    });
+
+    // Also consider handling hover on the mega menu itself to prevent closing
+    $(".mega-menu").hover(function() {
+        clearTimeout(menuTimeout); // Clear timeout if mouse enters the mega menu
+    }, function() {
+        // Start the timeout when mouse leaves the mega menu
+        menuTimeout = setTimeout(function() {
+            $(".overlay").removeClass('block');
+            $(".mega-menu").stop(true, true).slideUp(100, function(){
+                $(".navigation").animate({ height: '50px' }, 300);
+            });
+        }, 300); // Adjust the delay as needed
+    });
+    
+    
 
 
 
