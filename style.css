@@ -1,6 +1,8 @@
 @font-face{
     font-family: me;
     src: url(fonts/me.woff2);
+    
+
 }
 
 body {
@@ -9,7 +11,7 @@ body {
     box-sizing: border-box;
     font-family: me;
 }
-.overlay {
+/* .overlay {
     position: fixed;
     height: 100vh;
     left: 0;
@@ -31,7 +33,6 @@ body {
 }
 
 .navigation {
-    /* background-color: yellow; */
     justify-content: space-between;
     padding: 0px 20px;
     position: relative;
@@ -63,19 +64,18 @@ body {
 
 
 .mega-menu {
-    position: fixed; /* Change to fixed */
-    width: 100%; /* Adjust width as needed */
+    position: fixed; 
+    width: 100%;
     left: 0;
     display: none;
     z-index: 999;
     justify-content: center;
-    overflow-y: auto; /* Add overflow-y to handle vertical overflow */
+    overflow-y: auto; 
 }
 
 .mega-menu .dropdown {
     width: 600px;
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     list-style: none;
     padding: 10px 0;
@@ -87,7 +87,6 @@ body {
 
 
 .dropdown li {
-    /* Adjust styles for dropdown items if needed */
     margin: auto;
 }
 
@@ -114,8 +113,121 @@ body {
     -ms-transform: matrix(1,0,0,1,0,0);
     -o-transform: matrix(1,0,0,1,0,0);
 }
+ */
+ .overlay {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    background: #00000045;
+    z-index: 500;
+}
 
+.none {
+    display: none;
+}
 
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.navigation {
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    /* z-index: 5; */
+}
+
+.menu {
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 13.0909px;
+}
+
+.stock a {
+    text-decoration: none;
+    color: black;
+    width: 73px;
+}
+
+.stock {
+    padding: 22px;
+}
+
+.mega-menu {
+    position: fixed;
+    width: 100%;
+    height: 30vh;
+    left: 0;
+    display: none;
+    z-index: 1500;
+    justify-content: center;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95); /* White background with slight transparency */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+.mega-menu .dropdown {
+    width: 60%;
+    max-width: 1133px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+    
+   
+}
+
+.dropdown li {
+    flex: 1 1 calc(20% - 20px); /* Adjusts to fit 5 items per row */
+    text-align: center;
+}
+
+.dropdown a {
+    font-size: 15.2727px;
+    font-weight: 800;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dropdown a:hover {
+    color: #000;
+}
+
+.myAccount {
+    font-size: 13.0909px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+    -webkit-transition: color 0.3s, transform 0.3s;
+    -moz-transition: color 0.3s, transform 0.3s;
+    -ms-transition: color 0.3s, transform 0.3s;
+    -o-transition: color 0.3s, transform 0.3s;
+}
+
+.myAccount:hover {
+    transform: matrix(1,0,0,1,0,0);
+    -webkit-transform: matrix(1,0,0,1,0,0);
+    -moz-transform: matrix(1,0,0,1,0,0);
+    -ms-transform: matrix(1,0,0,1,0,0);
+    -o-transform: matrix(1,0,0,1,0,0);
+}
 
 
 footer {
@@ -276,14 +388,16 @@ footer a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 400px;
-    padding: 30px;
+    /* padding: 30px; */
+    margin: auto;
+    margin-left: 62px;
 }
 .store-1{
-    width: 80%;
+    width: 85%;
 }
 
 .store-1-1{
-    width: 90%;
+    width: 85%;
 }
 
 /* .store-1-1 img{
@@ -291,8 +405,21 @@ footer a {
 } */
 
 .store-1-3 a{
+
     text-decoration: none;
     color: black;
+}
+.store span{
+    font-family: bold;
+    font-size: 15.2727px;
+    font-weight: 600;
+}
+
+.store h2{
+    font-family: bold;
+    font-size: 1.91666667rem;
+    font-weight: 600;
+    color: #141517;
 }
 
 .Insta{
