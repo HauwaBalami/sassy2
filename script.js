@@ -10,14 +10,14 @@ $(document).ready(function(){
         clearTimeout(menuTimeout); // Clear any existing timeout
         $(".overlay").addClass('block'); 
         $(".mega-menu").stop(true, true).slideDown(100, function(){
-            $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
+            // $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
         });
     }, function() {
         // On mouse leave
         menuTimeout = setTimeout(function() {
             $(".overlay").removeClass('block'); // Hide overlay
             $(".mega-menu").stop(true, true).slideUp(100, function(){
-                $(".navigation").animate({ height: '50px' }, 300);
+                // $(".navigation").animate({ height: '50px' }, 300);
             });
         }, 300); // Adjust the delay as needed (300ms in this case)
     });
@@ -30,7 +30,7 @@ $(document).ready(function(){
         menuTimeout = setTimeout(function() {
             $(".overlay").removeClass('block');
             $(".mega-menu").stop(true, true).slideUp(100, function(){
-                $(".navigation").animate({ height: '50px' }, 300);
+                // $(".navigation").animate({ height: '50px' }, 300);
             });
         }, 300); // Adjust the delay as needed
     });
