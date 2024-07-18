@@ -169,10 +169,10 @@ body {
 .mega-menu {
     position: fixed;
     width: 100%;
-    height: 38vh;
+    height: 25vh;
     left: 0;
     display: none;
-    z-index: 1500;
+    z-index: 999;
     justify-content: center;
     overflow-y: auto;
     background: white;
@@ -203,10 +203,11 @@ body {
 
 .dropdown a {
     font-size: 15.2727px;
-    font-weight: 800;
+    font-weight: 900;
     color: #333;
     text-decoration: none;
     transition: color 0.3s;
+    
 }
 
 .dropdown a:hover {
@@ -217,7 +218,6 @@ body {
     font-size: 13.0909px;
     transition: transform 0.3s ease-in-out;
     display: inline-block;
-    margin-top: 10px;
 }
 
 .myAccount:hover {
@@ -340,12 +340,12 @@ footer a {
     color: #fff;
     transition-duration: .3s;
 }
-.fefe{
+.fefe {
     margin: auto;
     padding: 25px;
-    
 }
-.fefe-1{
+
+.fefe-1 {
     max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
@@ -353,7 +353,8 @@ footer a {
     position: relative;
     margin-top: 65px;
 }
-.fefe-1 p{
+
+.fefe-1 p {
     font-size: 15.7091px;
     line-height: 1.5;
     position: relative;
@@ -363,15 +364,8 @@ footer a {
     text-transform: uppercase;
 }
 
-
-.perfmatters-lazy.pmloaded, .perfmatters-lazy.pmloaded>img, .perfmatters-lazy>img.pmloaded, .perfmatters-lazy[data-ll-status=entered] {
+.perfmatters-lazy.pmloaded, .perfmatters-lazy.pmloaded > img, .perfmatters-lazy > img.pmloaded, .perfmatters-lazy[data-ll-status=entered] {
     animation: 500ms pmFadeIn;
-    transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -webkit-animation: 500ms pmFadeIn;
-    -webkit-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -moz-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -ms-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -o-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 .sassi-quote__stamp {
@@ -380,6 +374,7 @@ footer a {
     right: 0;
     width: 12.66666667rem;
     z-index: 1;
+    transform-origin: center; /* Ensure rotation happens around the center */
 }
 
 .store{

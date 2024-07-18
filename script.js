@@ -1,7 +1,4 @@
 $(document).ready(function(){
-    
-
-
 
     let menuTimeout;
 
@@ -34,29 +31,7 @@ $(document).ready(function(){
             });
         }, 300); // Adjust the delay as needed
     });
-    
-    
-    
-    
-    
-    // Slide down the mega menu on hover
-    // $("#menu").hover(function(){
-    //     // On mouse enter
-    //     // $(".overlay").fadeIn(300); 
-    //     $(".overlay").addClass('block'); 
-    //     $(".mega-menu").stop(true, true).slideDown(100, function(){
-    //         $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
-    //     });
-    // }, function(){
-    //     // On mouse leave
-    //     // $(".overlay").fadeOut(300); // Hide overlay
-    //     $(".overlay").removeClass('block'); // Hide overlay
-    //     $(".mega-menu").stop(true, true).slideUp(100, function(){
-    //         $(".navigation").animate({ height: '50px' }, 300);
-    //     });
-    // });
 
-    
 
 
 
@@ -71,7 +46,11 @@ $(document).ready(function(){
     });
 
     
-    
+    $(window).on('scroll', function() {
+        var scrollPosition = $(this).scrollTop();
+        var rotation = scrollPosition % 360; // Rotate based on scroll position
+        $('.sassi-quote__stamp').css('transform', 'rotate(' + rotation + 'deg)');
+    });
     
       
 
