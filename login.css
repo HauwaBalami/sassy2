@@ -1,0 +1,412 @@
+@font-face{
+    font-family: me;
+    src: url(fonts/me.woff2);
+    
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: me;
+}
+
+ 
+ .overlay {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    background: #00000045;
+    z-index: 500;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.navigation {
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    /* z-index: 5; */
+}
+
+.menu {
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 13.0909px;
+}
+
+.stock a {
+    text-decoration: none;
+    color: black;
+    width: 73px;
+}
+
+.stock {
+    padding: 22px;
+}
+
+.mega-menu {
+    position: fixed;
+    width: 100%;
+    height: 25vh;
+    left: 0;
+    display: none;
+    z-index: 999;
+    justify-content: center;
+    overflow-y: auto;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+
+    
+}
+
+.mega-menu .dropdown {
+    width: 60%;
+    max-width: 1133px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+    
+   
+}
+
+.dropdown li {
+    flex: 1 1 calc(20% - 20px); /* Adjusts to fit 5 items per row */
+    text-align: center;
+}
+
+.dropdown a {
+    font-size: 15.2727px;
+    font-weight: 900;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    
+}
+
+.dropdown a:hover {
+    color: #000;
+}
+
+.myAccount {
+    font-size: 13.0909px;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.myAccount:hover {
+    transform: translateY(-10px) scale(0.9);
+
+    
+    
+}
+
+
+
+
+/* .log-reg {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.log-reg h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 55px;
+    text-align: left; 
+}
+
+.LR {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    justify-content: center; 
+}
+
+.log, .register {
+    padding: 20px;
+}
+
+.log h2, .register h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid black;
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    font-size: 16px;
+    outline: none;
+    color: #000;
+}
+
+input::placeholder {
+    color: #000; 
+    font-size: 13.0909px;
+}
+
+a {
+    align-self: flex-start;
+    margin-bottom: 20px;
+    font-size: 13.0909px;
+    color: #000;
+    text-decoration: none;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    align-self: flex-start; 
+}
+
+.remember-me input {
+    margin-right: -29px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end; 
+}
+
+button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+    margin-top: -10px;
+}
+
+.remember {
+    font-weight: 500;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-right: .5rem;
+    padding-left: 2.25rem;
+    font-size: .825rem;
+    letter-spacing: .075rem;
+    margin-bottom: .975rem;
+    text-transform: uppercase;
+    cursor: pointer;
+} */ 
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    line-height: 25px;
+    padding: 8px 30px;
+    margin-top: 50px;
+    font-size: 13.0909px;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-1 h1, .footer-2 h1 {
+    color: black;
+    white-space: nowrap;
+    font-size: .82rem;
+}
+
+.footer-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+footer a {
+    color: gray;
+    text-decoration: none;
+    font-size: 13.0909px;
+}
+
+.footer-1 ul, .footer-2 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-item ul {
+    padding-left: 0;
+}
+
+.footer-item h1 {
+    margin-bottom: 10px;
+}
+
+.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social img {
+    width: 13px;
+}
+
+
+
+
+.log-reg {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.log-reg h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 55px;
+    text-align: left; /* Align the h1 to the left */
+}
+
+.LR {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    justify-content: center; /* Center the forms horizontally */
+}
+
+.log, .register {
+    padding: 20px;
+}
+
+.log h2, .register h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left; /* Align the heading text to the left */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid black;
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    font-size: 16px;
+    outline: none;
+    color: #000;
+}
+
+input::placeholder {
+    color: #000; /* Set placeholder color to black */
+    font-size: 13.0909px;
+}
+
+a {
+    align-self: flex-start;
+    margin-bottom: 20px;
+    font-size: 13.0909px;
+    color: #000;
+    text-decoration: none;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    align-self: flex-start; /* Align the remember-me section to the left */
+}
+
+.remember-me input {
+    margin-right: -29px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end; /* Align button to the right */
+}
+
+button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+    margin-top: -10px;
+}
+
+.remember {
+    font-weight: 500;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-right: .5rem;
+    padding-left: 2.25rem;
+    font-size: .825rem;
+    letter-spacing: .075rem;
+    margin-bottom: .975rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+
+
+
