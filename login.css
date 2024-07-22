@@ -350,6 +350,7 @@ input {
 input::placeholder {
     color: #000; /* Set placeholder color to black */
     font-size: 13.0909px;
+    text-transform:lowercase;
 }
 
 a {
