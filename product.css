@@ -84,12 +84,22 @@ p:hover a{
 }
 
 .body-size{
+    display: flex;
     /* margin-bottom: 30px; */
     padding:     0px 4px 2px;
-    margin: 8px 12px 0px 0px;
-    
-    
+    margin: 8px 12px 0px 0px; 
+    gap: 20px;  
 
+}
+.body-size li{
+    list-style: none;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+.body-size li.selected{
+    border-bottom: 2px solid black;
 }
 .body-size a{
     font-size: 18px;
@@ -102,7 +112,7 @@ p:hover a{
     height: 53.33px;
     background-color: white;
     color: black;
-    border: 3px solid black;
+    border: 2px solid black;
     font-size: 12px;
     margin-top: 20px;
     cursor: pointer;
@@ -110,6 +120,21 @@ p:hover a{
 .add-cart:hover{
     background-color: black;
     color: white;
+}
+.js-register{
+    width: 170px;
+    height: 53.33px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.js-register:hover{
+    background-color: black;
+    color: white;  
 }
 .try{
     display: flex;
@@ -161,32 +186,53 @@ p:hover a{
     transition: transform 0.8s ease-in-out;
     object-fit: fill;
 }
-
-
-
 .fix-last{
     margin-bottom: 65px;
 }
-
+/*Next and Prev Arrows*/
+.pic-arrow{
+    display: flex;
+    z-index: 5;
+    width: 590px;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 700px;
+    top: 40%;
+}
+.direction{
+    position: absolute;
+    
+}
+/* ------------------------------------------------------------------------ */
 .slider{
     height: 550px;
     width: 450px;
-    /* z-index: 2; */
+    z-index: 2;
     display: flex;
+    top: 0;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    z-index: 0;
 }
 .hide{
     z-index: 1;
 }
 .slider_holder{
-    position: relative;
+    position: absolute;
+    left: 770px;
 }
+/* .block{
+    display: block;
+    z-index: 1;
+} */
+/* #slider2{
+
+} */
 .absolute{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
+    /* z-index: 0; */
     /* display: none; */
 }
 
@@ -195,10 +241,12 @@ p:hover a{
     height: 550px;
     object-fit: cover;
     
-    z-index: 1;
+    /* z-index: 1; */
     
 }
-
+#previous,#next{
+    cursor: pointer;
+}
 h2{
     margin-top: 100px;
 }
@@ -341,8 +389,11 @@ footer{
 .items-spec{
     margin-bottom: 66px;
 }
-.remove{
-
+.remove-item {
+    cursor: pointer;
+    color: #9d9fa3;
+    font-size: 12px;
+    text-decoration: none;
 }
 /**********************************************Next & Prev***********************************************/
 /* .swiper-button-next{
