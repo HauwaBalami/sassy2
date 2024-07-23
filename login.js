@@ -48,7 +48,6 @@ $(document).ready(function () {
 
 
     const BASE = 'http://ecommerce.reworkstaging.name.ng/v2';
-    let user_id = JSON.parse(localStorage.getItem())
 
     // Show/Hide Change Password Form
     $('#showChangePassword').click(function () {

@@ -338,11 +338,10 @@ footer a {
     padding: 12px 0;
 }
 .insta-image-item img{
+    height: 176px;
     width: 100%;
 }
-/* .insta-image-item{
-    width: 20%;
-} */
+
 
 
 
