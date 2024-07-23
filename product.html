@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="product.css">
-    <title>PRODUCT-PAGE</title>
+    <title>PRODUCT-PAGE(Newsassi)</title>
 </head>
 
 <body>
@@ -41,15 +41,17 @@
                     <div class="color-selector2"></div>
                 </div>
                 <div class="body-size">
-                    <a href="">8</a>&nbsp;&nbsp;
-                    <a href="">10</a>&nbsp;&nbsp;
-                    <a href="">12</a>&nbsp;&nbsp;
-                    <a href="">14</a>&nbsp;&nbsp;
-                    <a href="">16</a>&nbsp;&nbsp;
-                    <a href="">18</a>&nbsp;&nbsp;
+                    <li data-size="SIZE 8" id="size-8">8</li>
+                    <li data-size="SIZE 10" id="size-10">10</li>
+                    <li data-size="SIZE 12" id="size-12">12</li>
+                    <li data-size="SIZE 14" id="size-14">14</li>
+                    <li data-size="SIZE 16" id="size-16">16</li>
+                    <li data-size="SIZE 18" id="size-18">18</li>
+            
                 </div>
 
                 <button class="add-cart" id="add-cart">ADD TO CART</button>
+                <button class="js-register none" id="js-register">REGISTER INTEREST</button>
                 <div class="main right" id="main"></div>
                 <div class="sidebar" id="sidebar">
                     <div class="sidebar-heading">
@@ -60,8 +62,8 @@
                     <div class="sidebar-footer">
                         <div class="sidebar-bottom ">
                             <h4 style="font-weight: 200; margin-left: 30px;" class="none">Your bag is empty.</h4>
-                            <div class="items-holder">
-                                <div class="scrollbar">
+                            <div class="items-holder" >
+                                <div class="scrollbar" >
                                     <div class="cart-image-holder">
                                         <img src="image/cart-1.jpg" alt="">
                                     </div>
@@ -72,42 +74,7 @@
                                             <span> 1 ×<span>£395.00</span></span>
                                         </div>
                                         <div>
-                                            <a href="">[REMOVE]</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="scrollbar">
-                                    <div class="cart-image-holder">
-                                        <img src="image/cart-1.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <div class="items-spec">
-                                            <h4 style="margin: 0;margin-bottom: 2px;">CONNINGTON WAISTCOAT</h4>
-                                            <h5 style="margin: 0;margin-bottom: 2px;">SIZE 10</h5>
-                                            <span> 1 ×<span>£395.00</span></span>
-                                        </div>
-                                        <div>
-                                            <a href="">[REMOVE]</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                
-                                <div class="scrollbar">
-                                    <div class="cart-image-holder">
-                                        <img src="image/cart-1.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <div class="items-spec">
-                                            <h4 style="margin: 0;margin-bottom: 2px;">CONNINGTON WAISTCOAT</h4>
-                                            <h5 style="margin: 0;margin-bottom: 2px;">SIZE 10</h5>
-                                            <span> 1 ×<span>£395.00</span></span>
-                                        </div>
-                                        <div>
-                                            <a href="">[REMOVE]</a>
+                                            <a href="" class="remove-item">[REMOVE]</a>
                                         </div>
 
                                     </div>
@@ -124,29 +91,12 @@
                                             <span> 1 ×<span>£395.00</span></span>
                                         </div>
                                         <div>
-                                            <a href="">[REMOVE]</a>
+                                            <a href="" class="remove-item">[REMOVE]</a>
                                         </div>
 
                                     </div>
 
-                                </div>
-                                <div class="scrollbar">
-                                    <div class="cart-image-holder">
-                                        <img src="image/cart-1.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <div class="items-spec">
-                                            <h4 style="margin: 0;margin-bottom: 2px;">CONNINGTON WAISTCOAT</h4>
-                                            <h5 style="margin: 0;margin-bottom: 2px;">SIZE 10</h5>
-                                            <span> 1 ×<span>£395.00</span></span>
-                                        </div>
-                                        <div class="remove">
-                                            <a href="">[REMOVE]</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                                </div>   
                             </div>
 
 
@@ -232,9 +182,14 @@
 
                 
             </div>
-            <div class="swiper-button-next swiper-button-prev">
+            <!-- <div class="direction"> -->
+                <div class="pic-arrow">
+                    <img src="image/prev.png" id="previous">
+                    <img src="image/next.png" id="next">    
+                </div>
                 <div class="slider_holder">
-                    <div class="slider hide">
+                    
+                    <div class="slider hide"> 
                         <img src="image/164-1200x1600.jpg" class="blue-dark">
                         <img src="image/165-825x1024.jpg" class="blue-dark">
                         <img src="image/166-825x1024.jpg" class="blue-dark">
@@ -247,7 +202,7 @@
                         <img src="image/blue3.jpg" class="blue-light">
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
             
 
 
