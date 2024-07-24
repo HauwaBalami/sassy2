@@ -141,6 +141,7 @@ $(document).ready(function() {
                 <div class = "cards">
                     <h3>${category.name}</h3>
                     <img src="${category.image}" alt="${category.name}" />
+                     <button id="delete">Delete</button>
                 </div>
             `);
         });
