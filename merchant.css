@@ -11,13 +11,14 @@ body {
 }
 
 .sidebar {
-    width: 250px;
+    width: 20%;
     background: #343a40;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
+    position: fixed;
 }
 
 .sidebar .logo {
@@ -92,9 +93,12 @@ body {
 }
 
 .main-content {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background: #f8f9fa;
     padding: 1.5rem;
+    position: absolute;
+    width: 80%;
+    right: 0;
 }
 
 header {
@@ -147,11 +151,18 @@ header .notifications .user-profile img {
 }
 
 .cards {
+   
+    flex-direction: column;
+    align-items: center;
+}
+.cart{
     display: flex;
     justify-content: space-between;
     /* gap: 40px; */
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
+
 
 .card {
     background: #fff;
@@ -178,8 +189,9 @@ header .notifications .user-profile img {
     font-size: 0.875rem;
     color: #6c757d;
 }
-.card img{
-    width: 100px;
+.cards img{
+    width: 300px;
+    height: 380px;
 }
 .charts {
     display: flex;

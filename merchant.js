@@ -134,7 +134,7 @@ $(document).ready(function() {
     });
 
     function displayCategories(categories) {
-        const categoriesList = $('#cards');
+        const categoriesList = $('.cart');
         categoriesList.empty();
         categories.forEach(category => {
             categoriesList.append(`
