@@ -63,7 +63,7 @@
             <div class="stock flex">
                 <a class="myAccount" href="signin-out.html">My Account</a>
                 <a href="#"><img src="images/search.png" style="width: 20%; margin-left: 20px;"></a>
-                <img src="images/shopping-bag.png" style="width: 15px; cursor: pointer; height: 15px;"  class="add-cart" id="add-cart">
+                <img src="images/shopping-bag.png" style="width: 15px; cursor: pointer; height: 15px;"  id="add-cart">
 
             </div>
 
@@ -84,7 +84,7 @@
             <div class="container">
                 <div class="page-control">
                     <img src="image/arrow-left.png" class="arrow">&nbsp;
-                    <span><a href="shop.html">SHOP</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<a href="shop.html"
+                    <span><a href="">SHOP</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<a href=""
                             style="color: black;font-weight: 700;">ALL</a></span>
                 </div>
                 <h1 style="font-size: 3.66666667rem; font-weight: 500;">CANNINGTON <br> WAISTCOAT</h1>
@@ -102,18 +102,13 @@
                     <div class="color-selector2"></div>
                 </div>
                 <div class="body-size">
-                    <li data-size="SIZE 8">8</li>
-                    <li data-size="SIZE 10">10</li>
-                    <li data-size="SIZE 12">12</li>
-                    <li data-size="SIZE 14">14</li>
-                    <li data-size="SIZE 16">16</li>
-                    <li data-size="SIZE 18">18</li>
-                    <!-- <a href="">8</a>&nbsp;&nbsp;
-                    <a href="">10</a>&nbsp;&nbsp;
-                    <a href="">12</a>&nbsp;&nbsp;
-                    <a href="">14</a>&nbsp;&nbsp;
-                    <a href="">16</a>&nbsp;&nbsp;
-                    <a href="">18</a>&nbsp;&nbsp; -->
+                    <li data-size="SIZE 8" id="size-8">8</li>
+                    <li data-size="SIZE 10" id="size-10">10</li>
+                    <li data-size="SIZE 12" id="size-12">12</li>
+                    <li data-size="SIZE 14" id="size-14">14</li>
+                    <li data-size="SIZE 16" id="size-16">16</li>
+                    <li data-size="SIZE 18" id="size-18">18</li>
+            
                 </div>
 
                 <button class="add-cart" id="add-cart">ADD TO CART</button>
@@ -248,9 +243,14 @@
 
                 
             </div>
-            <div class="swiper-button-next swiper-button-prev">
+            <!-- <div class="direction"> -->
+                <div class="pic-arrow">
+                    <img src="image/prev.png" id="previous">
+                    <img src="image/next.png" id="next">    
+                </div>
                 <div class="slider_holder">
-                    <div class="slider hide">
+                    
+                    <div class="slider hide"> 
                         <img src="image/164-1200x1600.jpg" class="blue-dark">
                         <img src="image/165-825x1024.jpg" class="blue-dark">
                         <img src="image/166-825x1024.jpg" class="blue-dark">
@@ -263,7 +263,7 @@
                         <img src="image/blue3.jpg" class="blue-light">
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
             
 
 
@@ -298,6 +298,7 @@
 
             </div>
         </div>
+
 
         <footer>
             <div class="footer-1">

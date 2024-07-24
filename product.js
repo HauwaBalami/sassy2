@@ -13,6 +13,13 @@ $(document).ready(function () {
         slidesToScroll: 1
 
     })
+    $('#next').click(function() {
+        $('.slider').slick('slickNext');
+      });
+  
+      $('#previous').click(function() {
+        $('.slider').slick('slickPrev');
+      });
 
     /*CLICK FOR CART TO SLIDE OUT ON PAGE*/
     $("#add-cart").click(function () {
@@ -81,6 +88,7 @@ $(document).ready(function () {
 
     // Function to append a cart item to the DOM
     function appendCartItem(item) {
+        console.log(item)
         var cartItem = `
             <div class="scrollbar">
                 <div class="cart-image-holder">
@@ -120,14 +128,15 @@ $(document).ready(function () {
         $(this).addClass('selected');
         selectedSize = $(this).data('size');
 
-        // if(selectedSize === 14 || 16 || 18 ){
-        //     $('.add-cart').hide()
-        //     $('.js-register').show()    
-        // }else{
-        //     $('.js-register').hide()
-        //     $('.add-cart').show() 
-        // }
+        if(selectedSize === '14' || selectedSize === '16' || selectedSize === '18' ){
+            $('.add-cart').addClass('none')
+            $('.js-register').removeClass('none')    
+        }else{
+            $('.js-register').removeClass('none')
+            $('.add-cart').addClass('none') 
+        }
 
+       
         
         
     });
@@ -139,7 +148,7 @@ $(document).ready(function () {
         var productPrice = $(this).data('price');
         var productImage = $(this).data('image');
 
-        // if (!selectedSize) {
+        // if (!selectedSize || selectedSize === '14' ||  selectedSize === '16' || selectedSize === '18' ) {
         //     alert('Please select a size.');
         //     return;
         // }
@@ -174,6 +183,10 @@ $(document).ready(function () {
         $(this).closest('.scrollbar').remove();
     });
 
+    $('#size-8').on('click', function(){
+        let productSize = $('#size-8').val('')
+    })
+
 
 
 
@@ -186,14 +199,14 @@ $(document).ready(function () {
         clearTimeout(menuTimeout); // Clear any existing timeout
         $(".overlay").addClass('block'); 
         $(".mega-menu").stop(true, true).slideDown(100, function(){
-            $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
+            // $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
         });
     }, function() {
         // On mouse leave
         menuTimeout = setTimeout(function() {
             $(".overlay").removeClass('block'); // Hide overlay
             $(".mega-menu").stop(true, true).slideUp(100, function(){
-                $(".navigation").animate({ height: '50px' }, 300);
+                // $(".navigation").animate({ height: '50px' }, 300);
             });
         }, 300); // Adjust the delay as needed (300ms in this case)
     });
@@ -206,7 +219,7 @@ $(document).ready(function () {
         menuTimeout = setTimeout(function() {
             $(".overlay").removeClass('block');
             $(".mega-menu").stop(true, true).slideUp(100, function(){
-                $(".navigation").animate({ height: '50px' }, 300);
+                // $(".navigation").animate({ height: '50px' }, 300);
             });
         }, 300); // Adjust the delay as needed
     });
