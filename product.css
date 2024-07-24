@@ -395,49 +395,7 @@ footer{
     font-size: 12px;
     text-decoration: none;
 }
-/**********************************************Next & Prev***********************************************/
-/* .swiper-button-next{
-    background-image: url(image/next.png);    
-    right: 10px;
-    left: auto;
-} */
-
-/* .swiper-button-next{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 27px;
-    height: 44px;
-    margin-top: -22px;
-    z-index: 11;
-    cursor: pointer;
-    background-size: 27px 44px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-color: hsla(0, 0%, 100%, .3);
-    padding: 30px;
-}
 
 
 
-.swiper-button-prev{
-    background-image: url(image/prev.png);
-    left: 10px;
-    right: auto;
-}
 
-.swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 27px;
-    height: 44px;
-    margin-top: -22px;
-    z-index: 1;
-    cursor: pointer;
-    background-size: 27px 44px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-color: hsla(0, 0%, 100%, .3);
-    padding: 30px;
-} */
