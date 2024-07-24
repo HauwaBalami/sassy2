@@ -1,0 +1,107 @@
+.color-balls {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.balls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.balls div:first-child {
+  height: 20px;
+  width: 20px;
+  background-color: #69a0db;
+  border-radius: 50px;
+}
+
+.balls div:nth-child(2) {
+  height: 20px;
+  width: 20px;
+  background-color: #f5bfdc;
+  border-radius: 50px;
+}
+.color-balls2 {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.balls2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+
+.balls2 div:first-child {
+  height: 20px;
+  width: 20px;
+  background-color: #69a0db;
+  border-radius: 50px;
+}
+
+.balls2 div:nth-child(2) {
+  height: 20px;
+  width: 20px;
+  background-color: #133385;
+  border-radius: 50px;
+}
+.color-balls3 {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.balls3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+
+.balls3 div:first-child {
+  height: 20px;
+  width: 20px;
+  background-color: #69a0db;
+  border-radius: 50px;
+}
+
+.balls3 div:nth-child(2) {
+  height: 20px;
+  width: 20px;
+  background-color: #133385;
+  border-radius: 50px;
+}
+
+.color-balls4 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .balls4 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+
+  .balls4 div:first-child {
+    height: 20px;
+    width: 20px;
+    background-color: green;
+    border-radius: 50px;
+  }
+
+  .balls4 div:nth-child(2) {
+    height: 20px;
+    width: 20px;
+    background-color: #d6cfb4;
+    border-radius: 50px;
+  }
+  .balls4 div:nth-child(3) {
+    height: 20px;
+    width: 20px;
+    background-color: #133385;
+    border-radius: 50px;
+  }
