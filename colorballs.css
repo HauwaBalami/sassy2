@@ -132,3 +132,125 @@
     border-radius: 50px;
   }
 
+  .color-balls6 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .balls6 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .balls6 div:first-child {
+    height: 20px;
+    width: 20px;
+    background-color: green;
+    border-radius: 50px;
+  }
+
+  .balls6 div:nth-child(2) {
+    height: 20px;
+    width: 20px;
+    background-color: #d6cfb4;
+    border-radius: 50px;
+  }
+
+  .color-balls7 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .balls7 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .balls7 div:first-child {
+    height: 20px;
+    width: 20px;
+    background-color: #69a0db;
+    border-radius: 50px;
+  }
+
+  .color-balls8 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .balls8 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .balls8 div:first-child {
+    height: 20px;
+    width: 20px;
+    background-color: #ad9158;
+    border-radius: 50px;
+  }
+
+  .color-balls10 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .balls10 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+
+  .balls10 div:first-child {
+    height: 20px;
+    width: 20px;
+    background-color: #000;
+    border-radius: 50px;
+  }
+
+  .balls10 div:nth-child(2) {
+    height: 20px;
+    width: 20px;
+    background-color: #ad9158;
+    border-radius: 50px;
+  }
+
+  .balls10 div:nth-child(3) {
+    height: 20px;
+    width: 20px;
+    background-color: #7a0744;
+    border-radius: 50px;
+  }
+
+  .color-balls11 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .balls11 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .balls11 div:first-child {
+    height: 20px;
+    width: 20px;
+    background-color: #69a0db;
+    border-radius: 50px;
+  }
+
+  .balls11 div:nth-child(2) {
+    height: 20px;
+    width: 20px;
+    background-color: #f5bfdc;
+    border-radius: 50px;
+  }
