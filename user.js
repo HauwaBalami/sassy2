@@ -202,42 +202,133 @@ $(document).ready(function () {
     });
 
     // Change Password Form Submission
-    $('#changePasswordForm').on('submit', function (e) {
-        e.preventDefault();
+    // $('#changePasswordForm').on('submit', function (e) {
+    //     e.preventDefault();
+    //     const user = JSON.parse(localStorage.getItem('user'));
+    //     let user_id = user.id
+    //     if (!user) {
+    //         alert('User not found. Please login first.');
+    //         return;
+    //     }
+    //     const formdata = {
+    //         current_password: $('#currentPassword').val(),
+    //         new_password: $('#newPassword').val(),
+    //     };
+    //     let valid = validateChangePassword(formdata);
+    //     if (valid) {
+    //         $.ajax({
+    //             url: `${BASE}/users/${user_id}/change-password`,
+    //             method: 'PUT',
+    //             contentType: 'application/json',
+    //             data: JSON.stringify(formdata),
+    //             headers: {
+    //                 'Authorization': `Bearer ${user.token}`
+    //             },
+    //             success: function (res) {
+    //                 console.log('success', res);
+    //                 alert("Password changed successfully");
+    //             },
+    //             error: function (err) {
+    //                 console.log('error', err);
+    //                 alert("Error changing password. Please try again.");
+    //             }
+    //         });
+    //     }
+    // });
+
+    // // Validation function for Change Password form
+    // function validateChangePassword(formData) {
+    //     let valid = true;
+
+    //     let currentPassword = formData.current_password;
+    //     let newPassword = formData.new_password;
+    //     let confirmNewPassword = formData.confirm_password;
+    //     let currentPassErr = $('#currentPassErr');
+    //     let newPassErr = $('#newPassErr');
+    
+
+    //     if (currentPassword === "") {
+    //         valid = false;
+    //         currentPassErr.text("Please enter your current password");
+    //     } else {
+    //         currentPassErr.text("");
+    //     }
+
+    //     if (newPassword === "") {
+    //         valid = false;
+    //         newPassErr.text("Please enter your new password");
+    //     } else if (newPassword.length < 8) {
+    //         valid = false;
+    //         newPassErr.text("Password must be at least 8 characters");
+    //     } else {
+    //         newPassErr.text("");
+    //     }
+
+    //     if (confirmNewPassword === "") {
+    //         valid = false;
+    //         confirmPassErr.text("Please confirm your new password");
+    //     } else if (confirmNewPassword !== newPassword) {
+    //         valid = false;
+    //         confirmPassErr.text("Passwords do not match");
+    //     } else {
+    //         confirmPassErr.text("");
+    //     }
+
+    //     return valid;
+    // }
+
+    $('#changePasswordForm').on('submit', function(event) {
+        event.preventDefault();
+        
         const user = JSON.parse(localStorage.getItem('user'));
-        let user_id = user.id
         if (!user) {
-            alert('User not found. Please login first.');
+            console.error('User not found in localStorage');
+            alert("User not logged in");
             return;
         }
-        const formdata = {
-            current_password: $('#currentPassword').val(),
-            new_password: $('#newPassword').val(),
-            confirm_password: $('#confirmNewPassword').val(),
-        };
-        let valid = validateChangePassword(formdata);
-        if (valid) {
+        
+        let user_id = user.id;
+        let token = user.token;
+
+        if (!user_id || !token) {
+            console.error('User ID or token is missing');
+            alert("Invalid user data");
+            return;
+        }
+
+        let formData = $(this).serializeArray();
+        let formObject = {};
+        $.each(formData, function(_, field) {
+            formObject[field.name] = field.value;
+        });
+
+        if (validateChangePassword(formObject)) {
+            let url = `${BASE}/users/${user_id}/change-password`;
+            console.log('Making AJAX request to URL:', url);
+            console.log('Authorization token:', token);
+
             $.ajax({
-                url: `${BASE}/users/${user_id}/change-password`,
+                url: url,
                 method: 'PUT',
                 contentType: 'application/json',
-                data: JSON.stringify(formdata),
+                data: JSON.stringify(formObject),
                 headers: {
-                    'Authorization': `Bearer ${user.token}`
+                    'Authorization': `Bearer ${token}`
                 },
                 success: function (res) {
-                    console.log('success', res);
+                    console.log('Success:', res);
                     alert("Password changed successfully");
                 },
                 error: function (err) {
-                    console.log('error', err);
+                    console.error('Error:', err);
                     alert("Error changing password. Please try again.");
                 }
             });
+        } else {
+            console.log('Form validation failed');
         }
     });
 
-    // Validation function for Change Password form
     function validateChangePassword(formData) {
         let valid = true;
 
@@ -258,9 +349,9 @@ $(document).ready(function () {
         if (newPassword === "") {
             valid = false;
             newPassErr.text("Please enter your new password");
-        } else if (newPassword.length < 8) {
-            valid = false;
-            newPassErr.text("Password must be at least 8 characters");
+        // } else if (newPassword.length < 8) {
+        //     valid = false;
+        //     newPassErr.text("Password must be at least 8 characters");
         } else {
             newPassErr.text("");
         }
@@ -277,7 +368,6 @@ $(document).ready(function () {
 
         return valid;
     }
-
 
 
 
