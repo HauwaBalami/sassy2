@@ -51,6 +51,11 @@ $(document).ready(function(){
         var rotation = scrollPosition % 360; // Rotate based on scroll position
         $('.sassi-quote__stamp').css('transform', 'rotate(' + rotation + 'deg)');
     });
+
+
+
+
+    
     
       
 

@@ -35,7 +35,7 @@ $(document).ready(function () {
                     console.log('success', res);
                     if (res) {
                         localStorage.setItem('user', JSON.stringify(res)); // Store user information
-                        // window.location.href = 'shop.html';
+                        window.location.href = 'shop.html';
                         console.log(localStorage)
                     }
                 },
@@ -165,12 +165,13 @@ $(document).ready(function () {
     // Update Registration Form Submission
     $('#updateRegistrationForm').on('submit', function (e) {
         e.preventDefault();
+        
         const user = JSON.parse(localStorage.getItem('user'));
-        let user_id = user.id
-        if (!user) {
-            alert('User not found. Please login first.');
-            return;
-        }
+        const BASE = 'http://ecommerce.reworkstaging.name.ng/v2';
+        let user_id = user.id;
+
+        
+        
         const formdata = {
             first_name: $('#updateFname').val(),
             last_name: $('#updateLname').val(),
@@ -178,16 +179,55 @@ $(document).ready(function () {
             phone: $('#updatePHONE').val(),
             password: $('#updatePASSWORD').val(),
         };
+
+       
+    
+        function validateRegistration(formdata) {
+            let valid = true;
+            let updateferr = $('#updateFerror');
+            let updatelerr = $('#updateLerror');
+            let updateemail = $('#updateEerror');
+            let updatephone = $('#updatePerror');
+    
+            if (formdata.first_name === "") {
+                updateferr.text("Please enter your first name");
+                valid = false;
+            } else {
+                updateferr.text("");
+            }
+            
+            if (formdata.last_name === "") {
+                updatelerr.text("Please enter your last name");
+                valid = false;
+            } else {
+                updatelerr.text("");
+            }
+            
+            if (formdata.email === "") {
+                updateemail.text("Please enter your email");
+                valid = false;
+            } else {
+                updateemail.text("");
+            }
+            
+            if (formdata.phone === "") {
+                updatephone.text("Please enter your phone number");
+                valid = false;
+            } else {
+                updatephone.text("");
+            }
+    
+            return valid;
+        }
+    
         let valid = validateRegistration(formdata);
+        
         if (valid) {
             $.ajax({
                 url: `${BASE}/users/${user_id}`,
                 method: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify(formdata),
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
-                },
                 success: function (res) {
                     console.log('success', res);
                     if (res) {
@@ -201,8 +241,6 @@ $(document).ready(function () {
             });
         }
     });
-
-   
    
 
     $('#changePasswordForm').on('submit', function(event) {
