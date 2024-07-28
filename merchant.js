@@ -142,8 +142,8 @@ $(document).ready(function() {
                     <h3>${category.name}</h3>
                     <img src="${category.image}" alt="${category.name}" />
                       <div class="button" >
-                        <button id="edit" style="background-color: blue;">Edit</button>
-                       <button id="delete" style="background-color: red;">Del</button>
+                        <button id="edit" style="background-color: blue;  border: none;">Edit</button>
+                       <button id="delete" style="background-color: red;  border: none;">Del</button>
                     </div>
                 </div>
             `);
