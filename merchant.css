@@ -334,3 +334,79 @@ input{
      font-size: 20px;
 }
   
+/*edit or update category*/
+#edit-btn {
+    padding: 5px 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.open-update-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.update-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%;
+    height: 40%; 
+    border-radius: 20px;
+}
+
+.add-update {
+    color: black;
+    background-color: white;
+    width: 40px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.modal-details-update{
+    margin-top: 20px;   
+}
+.tags-add-update{
+    margin: 5px 20px;
+}
+label{
+    font-size: 15px;
+}
+input{
+    width: 320px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #dddbdb;
+}
+
+.tag-style{
+    font-size: 18px;
+    margin-left: 20px;
+}
+.modal-details-update button{
+    margin: 20px 20px;
+    background-color: #dc3545;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error{
+    color: red;
+    font-size: 8px;
+}

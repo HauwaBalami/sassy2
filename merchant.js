@@ -142,12 +142,112 @@ $(document).ready(function() {
                     <h3>${category.name}</h3>
                     <img src="${category.image}" alt="${category.name}" />
                       <div class="button" >
-                        <button id="edit" style="background-color: blue;  border: none;">Edit</button>
-                       <button id="delete" style="background-color: red;  border: none;">Del</button>
+                        <button id="edit-btn" style="background-color: blue;">Edit</button>
+                       <button igid="delete-btn" style="background-color: red;">Del</button>
                     </div>
                 </div>
             `);
         });
     }
+    
+    function openModal() {
+        $('#open-update-modal').show();
+    }
+
+    function openModal() {
+        $('#open-update-modal').show();
+    }
+
+    // Function to close the modal
+    $('#update-category').click(function () {
+        $('#open-update-modal').hide();
+    });
+
+    // Handle the edit button click
+    $('#edit-btn').click(function () {
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        var image = $(this).data('image');
+
+        // Set the modal input values
+        $('#name').val(name);
+        $('#image').val(image);
+
+        // Save the category id in localStorage
+        localStorage.setItem('category-info', JSON.stringify({ id: id }));
+
+        // Open the modal
+        openModal();
+    });
+     // Handle the form submission
+     $('#update-category-form').submit(function (e) {
+        e.preventDefault();
+
+        let categoryInfo = JSON.parse(localStorage.getItem('category-info'));
+        const category_id = categoryInfo ? categoryInfo.id : null;
+
+        if (!category_id) {
+            alert('Category ID not found in localStorage.');
+            return;
+        }
+
+        const name = $('#name').val();
+        const image = $('#image').val();
+
+        const formData = {
+            name,
+            image
+        };
+
+        let valid = true;
+        if (formData.name === '') {
+            valid = false;
+            $('#name').addClass('error');
+            $('#nameError').show();
+        } else if (formData.image === '') {
+            valid = false;
+            $('#image').addClass('error');
+            $('#imageError').show();
+        }
+
+        if (valid) {
+            $.ajax({
+                method: 'PUT',
+                url: `${endPoint}/categories/${category_id}`,
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                success: function (res) {
+                    alert('Category updated successfully');
+                    appendOrUpdateCategory(res);
+                    $('#open-update-modal').hide();  // Close the modal after success
+                },
+                error: function (err) {
+                    alert('Failed to update category.');
+                }
+            });
+        }
+    });
+
+    function appendOrUpdateCategory(category) {
+        const categoryList = $('#category-list');
+        const category_id = category.id;
+        let existingCategory = $(`#category-${category_id}`);
+
+        if (existingCategory.length > 0) {
+            existingCategory.find('.category-name').text(category.name);
+            existingCategory.find('.category-image').attr('src', category.image);
+        } else {
+            const categoryItem = `
+                <div id="category-${category_id}" class="category-item">
+                    <img class="category-image" src="${category.image}" alt="${category.name}">
+                    <p class="category-name">${category.name}</p>
+                    <button id="edit-btn" data-id="${category.id}" data-name="${category.name}" data-image="${category.image}">Edit</button>
+                </div>
+            `;
+            categoryList.append(categoryItem);
+        }
+    }
+    /*Delete a category******************************************************************************** */
+      
     
 })
