@@ -6,7 +6,10 @@ $(document).ready(function() {
     $('#updateForm').submit(function(e){
         e.preventDefault()
 
-        let merchantId = JSON.parse(localStorage.getItem('registered-info'));
+        const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
+        
+        const merchantId = registeredInfo.id
+        
         let formData = {
             first_name: $('#first_name').val(),
             last_name: $('#last_name').val(),
@@ -34,7 +37,7 @@ $(document).ready(function() {
         if (valid) {
             $.ajax({
                 method: 'PUT',
-                url: `${endPoint}/merchants/:${merchantId}`,
+                url: `${endPoint}/merchants/${merchantId}`,
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: function(res) {
@@ -47,5 +50,9 @@ $(document).ready(function() {
                 }
             });
         }
+    })
+
+    $("changePassword").submit(function(){
+        
     })
 })
