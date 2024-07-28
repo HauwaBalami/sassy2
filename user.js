@@ -35,7 +35,8 @@ $(document).ready(function () {
                     console.log('success', res);
                     if (res) {
                         localStorage.setItem('user', JSON.stringify(res)); // Store user information
-                        window.location.href = 'index.html';
+                        window.location.href = 'shop.html';
+                        console.log(localStorage)
                     }
                 },
                 error: function (err) {
@@ -164,12 +165,13 @@ $(document).ready(function () {
     // Update Registration Form Submission
     $('#updateRegistrationForm').on('submit', function (e) {
         e.preventDefault();
+        
         const user = JSON.parse(localStorage.getItem('user'));
-        let user_id = user.id
-        if (!user) {
-            alert('User not found. Please login first.');
-            return;
-        }
+        const BASE = 'http://ecommerce.reworkstaging.name.ng/v2';
+        let user_id = user.id;
+
+        
+        
         const formdata = {
             first_name: $('#updateFname').val(),
             last_name: $('#updateLname').val(),
@@ -177,16 +179,55 @@ $(document).ready(function () {
             phone: $('#updatePHONE').val(),
             password: $('#updatePASSWORD').val(),
         };
+
+       
+    
+        function validateRegistration(formdata) {
+            let valid = true;
+            let updateferr = $('#updateFerror');
+            let updatelerr = $('#updateLerror');
+            let updateemail = $('#updateEerror');
+            let updatephone = $('#updatePerror');
+    
+            if (formdata.first_name === "") {
+                updateferr.text("Please enter your first name");
+                valid = false;
+            } else {
+                updateferr.text("");
+            }
+            
+            if (formdata.last_name === "") {
+                updatelerr.text("Please enter your last name");
+                valid = false;
+            } else {
+                updatelerr.text("");
+            }
+            
+            if (formdata.email === "") {
+                updateemail.text("Please enter your email");
+                valid = false;
+            } else {
+                updateemail.text("");
+            }
+            
+            if (formdata.phone === "") {
+                updatephone.text("Please enter your phone number");
+                valid = false;
+            } else {
+                updatephone.text("");
+            }
+    
+            return valid;
+        }
+    
         let valid = validateRegistration(formdata);
+        
         if (valid) {
             $.ajax({
                 url: `${BASE}/users/${user_id}`,
                 method: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify(formdata),
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
-                },
                 success: function (res) {
                     console.log('success', res);
                     if (res) {
@@ -200,109 +241,88 @@ $(document).ready(function () {
             });
         }
     });
+   
 
-    // Change Password Form Submission
-    $('#changePasswordForm').on('submit', function (e) {
-        e.preventDefault();
-        const user = JSON.parse(localStorage.getItem('user'));
-        let user_id = user.id
-        if (!user) {
-            alert('User not found. Please login first.');
-            return;
-        }
-        const formdata = {
-            current_password: $('#currentPassword').val(),
+    $('#changePasswordForm').on('submit', function(event) {
+        event.preventDefault();
+        const BASE = 'http://ecommerce.reworkstaging.name.ng/v2';
+        let loggeduser = JSON.parse(localStorage.getItem('user'))
+        let user_id = loggeduser.id
+    
+        const formData = {
+            old_password: $('#currentPassword').val(),
             new_password: $('#newPassword').val(),
-            confirm_password: $('#confirmNewPassword').val(),
-        };
-        let valid = validateChangePassword(formdata);
-        if (valid) {
+            
+        }
+    
+        function validateChangePassword(formData) {
+            let valid = true;
+            
+            let currentPassword = formData.old_password;
+            let newPassword = formData.new_password;
+            let currentPassErr = $('#currentPassErr');
+            let newPassErr = $('#newPassErr');
+            
+            
+            if (currentPassword === "") {
+                valid = false;
+                currentPassErr.text("Please enter your current password");
+            } else {
+                currentPassErr.text("");
+            }
+            
+            if (newPassword === "") {
+                valid = false;
+                newPassErr.text("Please enter your new password");
+            } else {
+                newPassErr.text("");
+            }
+            
+           
+            
+            return valid;
+        }
+    
+        if (validateChangePassword(formData)) {
+            console.log(formData);
             $.ajax({
-                url: `${BASE}/users/${user_id}/change-password`,
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify(formdata),
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
+                url: `${BASE}/users/${user_id}/change-passwd`,
+                method: "PUT",
+                data: formData,
+                success: function(res) {
+                    if (res) {
+                        alert('Password changed successfully');
+                        console.log(res);
+                    }
+                    window.location.href = 'user.html';
                 },
-                success: function (res) {
-                    console.log('success', res);
-                    alert("Password changed successfully");
-                },
-                error: function (err) {
+                error: function(err) {
                     console.log('error', err);
-                    alert("Error changing password. Please try again.");
                 }
             });
         }
     });
+    
+    
+    
+    
+    
+    
+    
 
-    // Validation function for Change Password form
-    function validateChangePassword(formData) {
-        let valid = true;
-
-        let currentPassword = formData.current_password;
-        let newPassword = formData.new_password;
-        let confirmNewPassword = formData.confirm_password;
-        let currentPassErr = $('#currentPassErr');
-        let newPassErr = $('#newPassErr');
-        let confirmPassErr = $('#confirmPassErr');
-
-        if (currentPassword === "") {
-            valid = false;
-            currentPassErr.text("Please enter your current password");
-        } else {
-            currentPassErr.text("");
-        }
-
-        if (newPassword === "") {
-            valid = false;
-            newPassErr.text("Please enter your new password");
-        } else if (newPassword.length < 8) {
-            valid = false;
-            newPassErr.text("Password must be at least 8 characters");
-        } else {
-            newPassErr.text("");
-        }
-
-        if (confirmNewPassword === "") {
-            valid = false;
-            confirmPassErr.text("Please confirm your new password");
-        } else if (confirmNewPassword !== newPassword) {
-            valid = false;
-            confirmPassErr.text("Passwords do not match");
-        } else {
-            confirmPassErr.text("");
-        }
-
-        return valid;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
 
     let menuTimeout;
 
 
-
+    
     $("#menu").hover(function () {
         // On mouse enter
         clearTimeout(menuTimeout); // Clear any existing timeout
         $(".overlay").addClass('block');
+        
         $(".mega-menu").stop(true, true).slideDown(100, function () {
             // $(".navigation").animate({ height: $(".navigation").height() + $(".mega-menu").outerHeight() }, 300);
         });
