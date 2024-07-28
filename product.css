@@ -1,4 +1,5 @@
 
+
 @font-face{
     font-family: me;
     src: url(fonts/me.woff2);
@@ -187,40 +188,55 @@ p:hover a{
     object-fit: fill;
 }
 
-.pic-arrow{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-.arrow-holder{
-    position: absolute;
-    right: 10px;
-}
+
 
 .fix-last{
     margin-bottom: 65px;
 }
-
+/*Next and Prev Arrows*/
+.pic-arrow{
+    display: flex;
+    z-index: 5;
+    width: 590px;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 700px;
+    top: 40%;
+}
+.direction{
+    position: absolute;
+    
+}
+/* ------------------------------------------------------------------------ */
 .slider{
     height: 550px;
     width: 450px;
-    /* z-index: 2; */
+    z-index: 2;
     display: flex;
+    top: 0;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    z-index: 0;
 }
 .hide{
     z-index: 1;
 }
 .slider_holder{
-    position: relative;
+    position: absolute;
+    left: 770px;
 }
+/* .block{
+    display: block;
+    z-index: 1;
+} */
+/* #slider2{
+
+} */
 .absolute{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
+    /* z-index: 0; */
     /* display: none; */
 }
 
@@ -229,10 +245,12 @@ p:hover a{
     height: 550px;
     object-fit: cover;
     
-    z-index: 1;
+    /* z-index: 1; */
     
 }
-
+#previous,#next{
+    cursor: pointer;
+}
 h2{
     margin-top: 100px;
 }
@@ -378,82 +396,41 @@ h2{
     font-size: 12px;
     text-decoration: none;
 }
-/**********************************************Next & Prev***********************************************/
-/* .swiper-button-next{
-    background-image: url(image/next.png);    
-    right: 10px;
-    left: auto;
-} */
-
-/* .swiper-button-next{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 27px;
-    height: 44px;
-    margin-top: -22px;
-    z-index: 11;
-    cursor: pointer;
-    background-size: 27px 44px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-color: hsla(0, 0%, 100%, .3);
-    padding: 30px;
-}
 
 
 
-.swiper-button-prev{
-    background-image: url(image/prev.png);
-    left: 10px;
-    right: auto;
-}
 
-.swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 27px;
-    height: 44px;
-    margin-top: -22px;
-    z-index: 1;
-    cursor: pointer;
-    background-size: 27px 44px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-color: hsla(0, 0%, 100%, .3);
-    padding: 30px;
-} */
+
 
 /* NAV */
+.overlay {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    background: #00000045;
+    z-index: 500;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
 .flex {
     display: flex;
 }
 
 .navigation {
-    /* background-color: yellow; */
     justify-content: space-between;
     padding: 0px 20px;
     position: relative;
-    z-index: 5;
+    /* z-index: 5; */
 }
-
-.overlay {
-    position: fixed;
-    height: 100vh;
-    left: 0;
-    top: 87px;
-    width: 100%;
-    background: #00000045;
-    z-index: 996;
-}
-.none{
-    display: none;
-}
-.block{
-    display: block;
-}
-   
 
 .menu {
     justify-content: space-between;
@@ -471,57 +448,72 @@ h2{
 .stock a {
     text-decoration: none;
     color: black;
-    width: 72px;
+    width: 73px;
 }
 
 .stock {
     padding: 22px;
 }
 
-
 .mega-menu {
-    position: fixed; /* Change to fixed */
-    width: 100%; /* Adjust width as needed */
+    position: fixed;
+    width: 100%;
+    height: 25vh;
     left: 0;
     display: none;
     z-index: 999;
     justify-content: center;
-    overflow-y: auto; /* Add overflow-y to handle vertical overflow */
+    overflow-y: auto;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+
+    
 }
 
 .mega-menu .dropdown {
-    width: 65%; /* Adjust width for dropdown items */
+    width: 60%;
+    max-width: 1133px;
     display: flex;
-    flex-wrap: wrap; /* Wrap items if necessary */
     justify-content: center;
     list-style: none;
-    padding: 10px 0;
-    margin: 0;
-    gap: 5px;
-    z-index: 999;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+    
+   
 }
 
 .dropdown li {
-    /* Adjust styles for dropdown items if needed */
-    margin: auto;
+    flex: 1 1 calc(20% - 20px); /* Adjusts to fit 5 items per row */
+    text-align: center;
+}
+
+.dropdown a {
+    font-size: 15.2727px;
+    font-weight: 900;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    
+}
+
+.dropdown a:hover {
+    color: #000;
 }
 
 .myAccount {
     font-size: 13.0909px;
+    transition: transform 0.3s ease-in-out;
     display: inline-block;
-    transition: color 0.3s, transform 0.3s;
-    -webkit-transition: color 0.3s, transform 0.3s;
-    -moz-transition: color 0.3s, transform 0.3s;
-    -ms-transition: color 0.3s, transform 0.3s;
-    -o-transition: color 0.3s, transform 0.3s;
 }
 
 .myAccount:hover {
-    transform: matrix(1,0,0,1,0,0);
-    -webkit-transform: matrix(1,0,0,1,0,0);
-    -moz-transform: matrix(1,0,0,1,0,0);
-    -ms-transform: matrix(1,0,0,1,0,0);
-    -o-transform: matrix(1,0,0,1,0,0);
+    transform: translateY(-10px) scale(0.9);
+
+    
+    
 }
 
  /* footer */

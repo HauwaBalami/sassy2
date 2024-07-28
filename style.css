@@ -1,6 +1,8 @@
 @font-face{
     font-family: me;
     src: url(fonts/me.woff2);
+    
+
 }
 
 body {
@@ -9,33 +11,35 @@ body {
     box-sizing: border-box;
     font-family: me;
 }
-.overlay {
+
+ 
+ .overlay {
     position: fixed;
     height: 100vh;
     left: 0;
     top: 120px;
     width: 100%;
     background: #00000045;
-    z-index: 900;
+    z-index: 500;
 }
-.none{
+
+.none {
     display: none;
 }
-.block{
+
+.block {
     display: block;
 }
-   
 
 .flex {
     display: flex;
 }
 
 .navigation {
-    /* background-color: yellow; */
     justify-content: space-between;
     padding: 0px 20px;
     position: relative;
-    z-index: 5;
+    /* z-index: 5; */
 }
 
 .menu {
@@ -61,61 +65,66 @@ body {
     padding: 22px;
 }
 
-
 .mega-menu {
-    position: fixed; /* Change to fixed */
-    width: 100%; /* Adjust width as needed */
+    position: fixed;
+    width: 100%;
+    height: 25vh;
     left: 0;
     display: none;
     z-index: 999;
     justify-content: center;
-    overflow-y: auto; /* Add overflow-y to handle vertical overflow */
+    overflow-y: auto;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+
+    
 }
 
 .mega-menu .dropdown {
-    width: 600px;
+    width: 60%;
+    max-width: 1133px;
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     list-style: none;
-    padding: 10px 0;
-    margin: 0;
-    gap: 14px;
-    z-index: 999;
-    margin-left: 275px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+    
+   
 }
-
 
 .dropdown li {
-    /* Adjust styles for dropdown items if needed */
-    margin: auto;
+    flex: 1 1 calc(20% - 20px); /* Adjusts to fit 5 items per row */
+    text-align: center;
 }
 
-.dropdown a{
+.dropdown a {
     font-size: 15.2727px;
-    margin: 13.0909px 0px;
-    font-weight: 800;
+    font-weight: 900;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    
+}
+
+.dropdown a:hover {
+    color: #000;
 }
 
 .myAccount {
     font-size: 13.0909px;
+    transition: transform 0.3s ease-in-out;
     display: inline-block;
-    transition: color 0.3s, transform 0.3s;
-    -webkit-transition: color 0.3s, transform 0.3s;
-    -moz-transition: color 0.3s, transform 0.3s;
-    -ms-transition: color 0.3s, transform 0.3s;
-    -o-transition: color 0.3s, transform 0.3s;
 }
 
 .myAccount:hover {
-    transform: matrix(1,0,0,1,0,0);
-    -webkit-transform: matrix(1,0,0,1,0,0);
-    -moz-transform: matrix(1,0,0,1,0,0);
-    -ms-transform: matrix(1,0,0,1,0,0);
-    -o-transform: matrix(1,0,0,1,0,0);
+    transform: translateY(-10px) scale(0.9);
+
+    
+    
 }
-
-
 
 
 footer {
@@ -230,12 +239,12 @@ footer a {
     color: #fff;
     transition-duration: .3s;
 }
-.fefe{
+.fefe {
     margin: auto;
     padding: 25px;
-    
 }
-.fefe-1{
+
+.fefe-1 {
     max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
@@ -243,7 +252,8 @@ footer a {
     position: relative;
     margin-top: 65px;
 }
-.fefe-1 p{
+
+.fefe-1 p {
     font-size: 15.7091px;
     line-height: 1.5;
     position: relative;
@@ -253,15 +263,8 @@ footer a {
     text-transform: uppercase;
 }
 
-
-.perfmatters-lazy.pmloaded, .perfmatters-lazy.pmloaded>img, .perfmatters-lazy>img.pmloaded, .perfmatters-lazy[data-ll-status=entered] {
+.perfmatters-lazy.pmloaded, .perfmatters-lazy.pmloaded > img, .perfmatters-lazy > img.pmloaded, .perfmatters-lazy[data-ll-status=entered] {
     animation: 500ms pmFadeIn;
-    transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -webkit-animation: 500ms pmFadeIn;
-    -webkit-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -moz-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -ms-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    -o-transform: matrix3d(0.899787, 0.43633, 0, 0, -0.43633, 0.899787, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 .sassi-quote__stamp {
@@ -270,20 +273,23 @@ footer a {
     right: 0;
     width: 12.66666667rem;
     z-index: 1;
+    transform-origin: center; /* Ensure rotation happens around the center */
 }
 
 .store{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 400px;
-    padding: 30px;
+    /* padding: 30px; */
+    margin: auto;
+    margin-left: 62px;
 }
 .store-1{
-    width: 80%;
+    width: 85%;
 }
 
 .store-1-1{
-    width: 90%;
+    width: 85%;
 }
 
 /* .store-1-1 img{
@@ -291,8 +297,21 @@ footer a {
 } */
 
 .store-1-3 a{
+
     text-decoration: none;
     color: black;
+}
+.store span{
+    font-family: bold;
+    font-size: 15.2727px;
+    font-weight: 600;
+}
+
+.store h2{
+    font-family: bold;
+    font-size: 1.91666667rem;
+    font-weight: 600;
+    color: #141517;
 }
 
 .Insta{
@@ -319,23 +338,13 @@ footer a {
     padding: 12px 0;
 }
 .insta-image-item img{
+    height: 176px;
     width: 100%;
 }
-/* .insta-image-item{
-    width: 20%;
-} */
 
-.myAccount{
-    font-size: 13px;
-}
-.myAccount:hover{
-    color: red;
-    transform: matrix3d();
-    -webkit-transform: matrix3d();
-    -moz-transform: matrix3d();
-    -ms-transform: matrix3d();
-    -o-transform: matrix3d();
-}
+
+
+
 
 #sidebar {
     /* position: absolute; */
