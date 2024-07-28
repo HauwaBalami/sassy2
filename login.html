@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Rouge+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <title>Login-Page</title>
+</head>
+<body>
+    <div class="holder">
+        <form id="loginForm">
+            <div id="none">
+                <p class="logErr">Email or Password is incorrect</p>
+            </div>
+            <h1>MERCHANT LOGIN</h1>
+            <div class="input-box">
+                <input type="error" placeholder="Email" id="email" >
+                <p id="emailError" class="error-message">Email is required</p>
+                
+                <!-- <img src="image/user.png" class="user-img"> -->
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password"  id="password">
+                <p id="passwordError" class="error-message">Password is required</p>
+                <!-- <img src="image/unlock.png"> -->
+            </div>
+
+            <div class="remember-forgot">
+                <label for=""><input type="checkbox">Remember me</input>
+                </label>
+                <a href="#">Forgot password</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account?
+                    <a href="register.html">Register</a>
+                </p>
+            </div>
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

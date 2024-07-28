@@ -1,0 +1,499 @@
+@font-face{
+    font-family: me;
+    src: url(fonts/me.woff2);
+    
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: me;
+}
+
+ 
+ .overlay {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    background: #00000045;
+    z-index: 500;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.navigation {
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    /* z-index: 5; */
+}
+
+.menu {
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 13.0909px;
+}
+
+.stock a {
+    text-decoration: none;
+    color: black;
+    width: 73px;
+}
+
+.stock {
+    padding: 22px;
+}
+
+.mega-menu {
+    position: fixed;
+    width: 100%;
+    height: 25vh;
+    left: 0;
+    display: none;
+    z-index: 999;
+    justify-content: center;
+    overflow-y: auto;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+
+    
+}
+
+.mega-menu .dropdown {
+    width: 60%;
+    max-width: 1133px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+    
+   
+}
+
+.dropdown li {
+    flex: 1 1 calc(20% - 20px); /* Adjusts to fit 5 items per row */
+    text-align: center;
+}
+
+.dropdown a {
+    font-size: 15.2727px;
+    font-weight: 900;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    
+}
+
+.dropdown a:hover {
+    color: #000;
+}
+
+.myAccount {
+    font-size: 13.0909px;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.myAccount:hover {
+    transform: translateY(-10px) scale(0.9);
+
+    
+    
+}
+
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    line-height: 25px;
+    padding: 8px 30px;
+    margin-top: 50px;
+    font-size: 13.0909px;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-1 h1, .footer-2 h1 {
+    color: black;
+    white-space: nowrap;
+    font-size: .82rem;;
+}
+
+.footer-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+footer a {
+    color: gray;
+    text-decoration: none;
+    font-size: 13.0909px;
+}
+
+.footer-1 ul, .footer-2 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-item ul {
+    padding-left: 0;
+}
+
+.footer-item h1 {
+    margin-bottom: 10px;
+}
+
+.social {
+    display: flex;
+    gap: 10px;
+}
+
+.social img {
+    width: 13px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 470px;
+    margin: auto;
+    padding: 0px 35px;
+}
+
+.grid-item-1{
+    background-image: url(images/Untitled-design-19-scaled-2560x1440_2.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+.grid-item-2{
+    background-image: url(images/Sassi-Holford-Womenswear-SS24-Cannington-5-1.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.btn{
+    display: inline-flex;
+    padding: 1.33333333rem 2.08333333rem;
+    margin: 0 0 1.66666667rem;
+    background-color: transparent;
+    color: #141517;
+    position: relative;
+    font-family: runda, sans-serif;
+    font-size: .83333333rem;
+    font-weight: 700;
+    letter-spacing: .05rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border: 2px solid #141517;
+    cursor: pointer;
+    transition-property: color, opacity, background-color, border-color;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(.455,.03,.515,.955);
+    text-align: center
+}
+.overlap{
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.btn:hover {
+    background-color: #141517;
+    color: #fff;
+    transition-duration: .3s;
+}
+.fefe {
+    margin: auto;
+    padding: 25px;
+}
+
+.fefe-1 {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    margin-top: 65px;
+}
+
+.fefe-1 p {
+    font-size: 15.7091px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+    font-family: runda, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.perfmatters-lazy.pmloaded, .perfmatters-lazy.pmloaded > img, .perfmatters-lazy > img.pmloaded, .perfmatters-lazy[data-ll-status=entered] {
+    animation: 500ms pmFadeIn;
+}
+
+.sassi-quote__stamp {
+    position: absolute;
+    bottom: 0.166667rem;
+    right: 0;
+    width: 12.66666667rem;
+    z-index: 1;
+    transform-origin: center; /* Ensure rotation happens around the center */
+}
+
+.store{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 400px;
+    /* padding: 30px; */
+    margin: auto;
+    margin-left: 62px;
+}
+.store-1{
+    width: 85%;
+}
+
+.store-1-1{
+    width: 85%;
+}
+
+/* .store-1-1 img{
+    width: 466px;
+} */
+
+.store-1-3 a{
+
+    text-decoration: none;
+    color: black;
+}
+.store span{
+    font-family: bold;
+    font-size: 15.2727px;
+    font-weight: 600;
+}
+
+.store h2{
+    font-family: bold;
+    font-size: 1.91666667rem;
+    font-weight: 600;
+    color: #141517;
+}
+
+
+.Insta{
+    width: 95%;
+    margin: auto;
+    margin-top: 130px;
+}
+.Insta-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+
+.Insta h1{
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+.Insta-image{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    width: 100%;
+    padding: 12px 0;
+}
+.insta-image-item img{
+    height: 176px;
+    width: 100%;
+}
+
+
+
+
+
+#sidebar {
+    /* position: absolute; */
+    bottom: 15px;
+    /* right: -631px; Initial state */
+    width: 600px;
+    z-index: 10;
+    background-color: white;
+    transition: right 0.3s ease;
+}
+
+.in {
+    right: -631px; 
+    position: fixed;
+}
+.out{
+    position: fixed;
+    right: 0;
+}
+
+.sidebar-heading{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+    box-shadow: #ffffff;
+    /* height: 30px; */
+}
+.items-holder{
+    background-color: #ffffff;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-color: rgba(202, 199, 199, 0.945);
+    height: 350px;
+    /* width: 230px; */
+}
+.scrollbar{
+    
+    /* height: 400px; */
+    
+    /* background-color: #ffffff; */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    border-bottom: 0.5px solid rgb(230, 225, 225);
+}
+.next{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.sidebar-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+/* .right{
+    
+    right: 0;
+} */
+
+.close-cart{
+   width: 60px;
+   height: 40px; 
+   margin-top: 10px;
+   cursor: pointer;
+   background-color: transparent;
+   border: none;
+}
+.close-img{
+    width: 32px;
+}
+.sidebar-footer{
+    background-color: #f1f1f1;
+    height: 135px;
+}
+.total-price{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 40px;
+}
+.check-basket{
+    margin: 20px 0px 40px 40px;
+    padding-bottom: 180px;
+    display: flex;
+    gap: 20px;
+}
+.go-to-shop{
+    font-size: 12px;
+    font-weight: 800;
+    width: 140px;
+    height: 55px;
+    border: 2px solid black; 
+    /* position: absolute; */
+    bottom: 50px;
+}
+.checkout{
+    font-size: 10px;
+    font-weight: 800;
+    width: 113.92px;
+    height: 48px;
+    margin: 0px 18px 0px 0px;
+    border: 2px solid black;
+
+}
+.basket{
+    font-size: 10px;
+    font-weight: 800;
+    width: 140px;
+    height: 48px;
+    border: 2px solid black;
+}
+.show-try h5{
+    color: #9d9fa3;
+}
+.show-try h5:hover{
+    cursor: pointer;
+}
+.para3 button{
+    width: 200px;
+    height: 48px;
+    font-size: 11px;
+    font-weight: 900;
+    border: 2px solid black;
+    background-color: #ffffff;
+}
+.para3 button:hover{
+    background-color: #141517;
+    color: white;
+}
+/* footer{
+    background-color: blue;
+    height: 70px;
+} */
+.para{
+    display: none;
+}
+.items-spec{
+    margin-bottom: 66px;
+}
+.cart-info-remove .remove {
+    color: red; /* Change text color */
+    font-weight: bold; /* Make text bold */
+    font-size: 16px; /* Change text size */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Add padding */
+    border: 1px solid red; /* Add border */
+    border-radius: 5px; /* Round the corners */
+    background-color: #f9f9f9; /* Change background color */
+}
+.cart-info-remove .remove:hover {
+    background-color: red; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}

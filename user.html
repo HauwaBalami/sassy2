@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="user.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="content">
+
+        <div class="navigation  flex">
+            <div class="logo" style="margin-top: 20px;
+            ">SASSI HOLFORD
+
+            </div>
+            <div class="nav-links ">
+                <ul class="flex menu" style="margin-right: 232px;">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Bridal</a></li>
+                    <li><a href="#" id="menu">Womenswear</a>
+                        <div class="overlay none"></div>
+                        <div class="mega-menu">
+                            <ul class="dropdown">
+                                <li><a href="shop.html">All</a></li>
+                                <li><a href="#">BLOUSES & TOPS</a></li>
+                                <li><a href="#">DRESSES</a></li>
+                                <li><a href="#">JACKETS & COATS</a></li>
+                                <li><a href="#">TROUSERS</a></li>
+                                <li><a href="#">SKIRTS</a></li>
+                                <li><a href="#">MOTHER-OF-THE-BRIDE</a></li>
+                                <li><a href="#">INSPIRE ME</a></li>
+                                <li><a href="#">SALE</a></li>
+
+                            </ul>
+                        </div>
+
+
+
+                    </li>
+                    <li><a href="#">Appointments</a></li>
+                    <li><a href="#">Enquiries</a></li>
+                    <li><a href="#">OurStores</a></li>
+                    <li><a href="#">Stockists</a></li>
+
+                </ul>
+            </div>
+
+            <div class="stock flex">
+                <a class="myAccount" href="signin-out.html">My Account</a>
+                <a href="#"><img src="images/search.png" style="width: 20%; margin-left: 20px;"></a>
+                <img src="images/shopping-bag.png" style="width: 15px; cursor: pointer; height: 15px;" class="add-cart"
+                    id="add-cart">
+
+            </div>
+
+
+        </div>
+
+
+
+
+        
+
+
+
+        <div class="log-reg">
+            <h1>LOGIN OR REGISTER</h1>
+            <div class="LR">
+                <div class="log">
+                    <h2>LOGIN</h2>
+                    <form id="login">
+                        <input placeholder="EMAIL *" type="email" id="email">
+                        <p id="emailErr" style="color: red;"></p>
+                        <input placeholder="PASSWORD *" type="password" id="password">
+                        <p id="passErr" style="color: red;"></p>
+                        <a href="#">Lost your password?</a>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label class="remember" for="remember">REMEMBERME</label>
+                        </div>
+                        <button type="submit">LOG IN</button>
+                    </form>
+                    <button id="showChangePassword">Change Password</button>
+                    <form id="changePasswordForm" style="display: none;">
+                        <input placeholder="CURRENT PASSWORD *" type="password" id="currentPassword">
+                        <p id="currentPassErr" style="color: red;"></p>
+                        <input placeholder="NEW PASSWORD *" type="password" id="newPassword">
+                        <p id="newPassErr" style="color: red;"></p>
+                        <!-- <input placeholder="CONFIRM NEW PASSWORD *" type="password" id="confirmNewPassword">
+                        <p id="confirmPassErr" style="color: red;"></p> -->
+                        <button type="submit">CHANGE PASSWORD</button>
+                    </form>
+                </div>
+                 
+                <div class="register">
+                    <h2>CREATE AN ACCOUNT</h2>
+                    <form id="register">
+                        <input type="text" placeholder="FIRST-NAME" id="Fname">
+                        <p id="Ferror" style="color: red;"></p>
+                        <input type="text" placeholder="LAST-NAME" id="Lname">
+                        <p id="Lerror" style="color: red;"></p>
+                        <input type="email" placeholder="EMAIL ADDRESS *" id="Email">
+                        <p id="Eerror" style="color: red;"></p>
+                        <input type="text" placeholder="PHONENUMBER*" id="PHONE">
+                        <p id="Perror" style="color: red;"></p>
+                        <input type="password" placeholder="PASSWORD *" id="PASSWORD">
+                        <p id="Passerror" style="color: red;"></p>
+                        <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
+                        <button type="submit">REGISTER</button>
+                    </form>
+                    <button id="showUpdateRegistration">Update Registration</button>
+                    <form id="updateRegistrationForm" style="display: none;">
+                        <input type="text" placeholder="FIRST-NAME" id="updateFname">
+                        <p id="updateFerror" style="color: red;"></p>
+                        <input type="text" placeholder="LAST-NAME" id="updateLname">
+                        <p id="updateLerror" style="color: red;"></p>
+                        <input type="email" placeholder="EMAIL ADDRESS *" id="updateEmail">
+                        <p id="updateEerror" style="color: red;"></p>
+                        <input type="text" placeholder="PHONENUMBER*" id="updatePHONE">
+                        <p id="updatePerror" style="color: red;"></p>
+                        <button type="submit">UPDATE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <footer>
+            <div class="footer-1">
+                <h1>© 2024 SASSI HOLFORD</h1>
+                <ul class="footer-20">
+                    <li><a href="#">020 4576 2506</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                    <li><a href="#">Website Double Brace</a></li>
+                </ul>
+            </div>
+            <div class="footer-2">
+                <div class="footer-item">
+                    <h1>ABOUT US</h1>
+                    <ul>
+                        <li><a href="#">Our Stores</a></li>
+                        <li><a href="#">Stockists</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Responsibility</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h1>COLLECTIONS</h1>
+                    <ul>
+                        <li><a href="#">2024 Harmony</a></li>
+                        <li><a href="#">2023 Let There Be Love</a></li>
+                        <li><a href="#">2022 Love Conquers All</a></li>
+                        <li><a href="#">2021 Asteria</a></li>
+                        <li><a href="#">Sassi's Signatures</a></li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h1>INFO</h1>
+                    <ul>
+                        <li><a href="#">Size Help</a></li>
+                        <li><a href="#">Delivery and Returns</a></li>
+                        <li><a href="#">Womenswear FAQs</a></li>
+                        <li><a href="#">Stockist Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h1>FOLLOW SASSI</h1>
+                    <div class="social">
+                        <a href="#"><img src="images/facebook (5).png"></a>
+                        <a href="#"><img src="images/instagram-symbol.png"></a>
+                        <a href="#"><img src="images/pinterest-logo.png"></a>
+                        <a href="#"><img src="images/2559760_media_social_video_youtube_icon.png"></a>
+                    </div>
+                    <h1>MAILING LIST</h1>
+                    <span style="color: gray; font-size: 15px;">SIGN UP</span>
+                    <p style="font-size: 15px; color:#645e5e;">Sign up to receive 10% off <br />your first online<br />
+                        womenswear order.</p>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+    <script src="user.js"></script>
+</body>
+</html>
