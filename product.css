@@ -187,9 +187,6 @@ p:hover a{
     transition: transform 0.8s ease-in-out;
     object-fit: fill;
 }
-
-
-
 .fix-last{
     margin-bottom: 65px;
 }
