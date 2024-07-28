@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="profile.css">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="design-profile">
+            <h1>Profile</h1>
+            <img src="image/g-pic.avif" alt="Profile Picture">
+        </div>
+        <form id="updateForm">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" placeholder="Enter your first name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" placeholder="Enter your last name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="store_name">Store Name:</label>
+                <input type="text" id="store_name" placeholder="Enter your store name" required>
+            </div>
+            <div class="form-group">
+                <label for="descp">Description:</label>
+                <textarea id="descp" placeholder="Enter a description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="icon">Icon:</label>
+                <input type="file" id="icon">
+            </div>
+            <div class="form-group">
+                <label for="banner">Banner:</label>
+                <input type="file" id="banner">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" placeholder="Enter your state">
+            </div>
+            <div class="form-group">
+                <label for="district">District:</label>
+                <input type="text" id="district" placeholder="Enter your district">
+            </div>
+            <div class="form-group">
+                <label for="x">X (formerly Twitter):</label>
+                <input type="text" id="x" placeholder="Enter your X handle">
+            </div>
+            <div class="form-group">
+                <label for="face_book">Facebook:</label>
+                <input type="text" id="face_book" placeholder="Enter your Facebook handle">
+            </div>
+            <div class="form-group">
+                <label for="instagram">Instagram:</label>
+                <input type="text" id="instagram" placeholder="Enter your Instagram handle">
+            </div>
+            <div class="form-group">
+                <label for="phones">Phones:</label>
+                <input type="tel" id="phones" placeholder="Enter additional phone number">
+            </div>
+            <button type="submit" class="submit-btn">Update Merchant Info</button>
+        </form>
+    </div>
+    
+    <script src="profile.js"></script>
+</body>
+
+</html>
