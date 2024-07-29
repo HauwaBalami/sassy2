@@ -177,7 +177,7 @@ $(document).ready(function () {
             last_name: $('#updateLname').val(),
             email: $('#updateEmail').val(),
             phone: $('#updatePHONE').val(),
-            password: $('#updatePASSWORD').val(),
+    
         };
 
        
