@@ -52,7 +52,62 @@ $(document).ready(function() {
         }
     })
 
-    $("changePassword").submit(function(){
-        
-    })
+   /*Change Password Code*/
+    // Open the modal
+    $('#openModalBtn').on('click', function() {
+        $('#passwordModal').show();
+    });
+
+    // Close the modal
+    $('.close').on('click', function() {
+        $('#passwordModal').hide();
+    });
+
+    // Close the modal if user clicks outside of the modal
+    $(window).on('click', function(event) {
+        if (event.target.id === 'passwordModal') {
+            $('#passwordModal').hide();
+        }
+    });
+
+    // Handle form submission
+    $('#change-password-form').submit(function(e) {
+        e.preventDefault();
+
+        let merchantInfo = JSON.parse(localStorage.getItem('registered-info'));
+        if (!merchantInfo || !merchantInfo.id) {
+            alert('Merchant ID not found in localStorage.');
+            return;
+        }
+
+        const merchantId = merchantInfo.id;
+        const oldPassword = $('#old_password').val().trim();
+        const newPassword = $('#new_password').val().trim();
+
+        if (!oldPassword || !newPassword) {
+            alert('Both old and new passwords are required.');
+            return;
+        }
+
+        const formData = {
+            old_password: oldPassword,
+            new_password: newPassword
+        };
+
+        $.ajax({
+            method: 'PUT',
+            url: `${endPoint}/merchants/${merchantId}/change-passwd`,
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function(res) {
+                console.log(res);
+                $('#response').html('<p id="success">Password changed successfully!</p>');
+            },
+            error: function(err) {
+                console.log(err);
+                $('#response').html(`<p id="error">Error: ${err.statusText}</p><p>${err.responseText}</p>`);
+            }
+        });
+    });
+
 })

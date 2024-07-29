@@ -72,10 +72,44 @@
                 <label for="phones">Phones:</label>
                 <input type="tel" id="phones" placeholder="Enter additional phone number">
             </div>
+
+            <div class="form-group">
+                <button type="button" class="change-password-btn" id="openModalBtn">Change Password</button>
+            </div>
             <button type="submit" class="submit-btn">Update Merchant Info</button>
         </form>
+        <div id="response"></div>
     </div>
     
+
+
+     <!-- Change password POP-UP -->
+    
+
+     <!-- Modal Structure -->
+     <div id="passwordModal" class="modal">
+         <div class="modal-content">
+             <span class="close">&times;</span>
+             <h2 style="text-align: center;">Change Password</h2>
+             <form id="change-password-form">
+                <div class="form-block">
+                    <label for="old_password">Old Password:</label>
+                    <input type="password" id="old_password" name="old_password">
+                </div>
+                 
+                 <div class="form-block">
+                    <label for="new_password">New Password:</label>
+                    <input type="password" id="new_password" name="new_password">
+                 </div>
+                 
+               
+                    <button type="submit" class="btn-change">Change Password</button>
+              
+             </form>
+             <div id="response"></div>
+         </div>
+     </div>
+ 
     <script src="profile.js"></script>
 </body>
 
