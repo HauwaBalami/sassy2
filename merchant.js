@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     const endPoint = 'http://ecommerce.reworkstaging.name.ng/v2';
     // let merchantId = JSON.parse(localStorage.getItem('registered-info')).id;
     // console.log('success',merchantId)
-    $('#updateForm').submit(function(e){
+    $('#updateForm').submit(function (e) {
         e.preventDefault()
 
         let merchantId = JSON.parse(localStorage.getItem('registered-info'));
@@ -37,11 +37,11 @@ $(document).ready(function() {
                 url: `${endPoint}/merchants/:${merchantId}`,
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
-                success: function(res) {
+                success: function (res) {
                     console.log(res);
                     $('#response').html(`<p>Merchant information updated successfully!</p><p>${JSON.stringify(res)}</p>`);
                 },
-                error: function(err) {
+                error: function (err) {
                     console.log(err);
                     $('#response').html(`<p>Error: ${err.statusText}</p><p>${err.responseText}</p>`);
                 }
@@ -49,40 +49,40 @@ $(document).ready(function() {
         }
     })
 
-    $('#open-modal').on('click', function(){
+    $('#open-modal').on('click', function () {
         $('#modal').show()
         // $('#add').hide()
     })
-    $('#add').on('click', function(){
+    $('#add').on('click', function () {
         $('#modal').hide()
     })
 
-    $('#add-category').submit(function(e) {
+    $('#add-category').submit(function (e) {
         e.preventDefault();
-    
+
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
         if (!registeredInfo || !registeredInfo.id) {
             alert('Merchant ID not found in localStorage.');
             return;
         }
-        
+
         const merchant_id = registeredInfo.id;
         let name = $('#name').val();
         let image = $('#image').val();
-        
+
         let formData = {
             merchant_id,
             name,
             image
         };
-    
+
         $('#name').removeClass('error');
         $('#nameError').hide();
         $('#image').removeClass('error');
         $('#imageError').hide();
-    
+
         let valid = true; // Initialize valid variable
-    
+
         if (formData.name === '') {
             valid = false;
             $('#name').addClass('error');
@@ -97,12 +97,12 @@ $(document).ready(function() {
                 url: `${endPoint}/categories`,
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
-                success: function(res) {
+                success: function (res) {
                     console.log(res);
                     alert('Created a category for a product Successfully');
                     console.log('Success', res);
                 },
-                error: function(err) {
+                error: function (err) {
                     console.log(err);
                 }
             });
@@ -110,7 +110,7 @@ $(document).ready(function() {
     });
 
     // For the get categoreis
-    $('#all-categories').click(function() {
+    $('#all-categories').click(function () {
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
         if (!registeredInfo || !registeredInfo.id) {
             alert('Merchant ID not found in localStorage.');
@@ -122,11 +122,11 @@ $(document).ready(function() {
         $.ajax({
             method: 'GET',
             url: `${endPoint}/categories?merchant_id=${merchant_id}`,
-            success: function(res) {
+            success: function (res) {
                 console.log(res);
                 displayCategories(res);
             },
-            error: function(err) {
+            error: function (err) {
                 console.log(err);
                 alert('Failed to fetch categories.');
             }
@@ -138,16 +138,55 @@ $(document).ready(function() {
         categoriesList.empty();
         categories.forEach(category => {
             categoriesList.append(`
-                <div class = "cards">
-                    <h3>${category.name}</h3>
-                    <img src="${category.image}" alt="${category.name}" />
-                    <div class="button" >
-                        <button id="edit" style="background-color: blue;">Edit</button>
-                       <button id="delete" style="background-color: red;">Del</button>
+               <div class="cards">
+
+               
+                <h3>Products</h3>
+                <div class="dropdown">
+                    <span class="dots-icon">⋮</span>
+                    <div class="dropdown-menu">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
                     </div>
                 </div>
+                <img src="${category.image}" alt="${category.name}" />
+                
+             </div>
             `);
         });
     }
-    
+
+
+
+
+    // Toggle dropdown menu
+    $('.dots-icon').on('click', function (event) {
+        event.stopPropagation(); // Prevent the event from bubbling up to the window click event
+        $(this).next('.dropdown-menu').toggle(); // Toggle visibility of the dropdown menu
+    });
+
+    // Handle edit and delete actions
+    $('.dropdown-menu').on('click', '.edit-btn', function () {
+        alert('Edit button clicked');
+    });
+
+    $('.dropdown-menu').on('click', '.delete-btn', function () {
+        alert('Delete button clicked');
+    });
+
+    // Close dropdown if clicked outside
+    $(window).on('click', function () {
+        $('.dropdown-menu').hide(); // Hide dropdown menu
+    });
+
+
+
+
+
+
+
+
+
+
+
 })

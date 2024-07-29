@@ -144,17 +144,40 @@
             </div>
         </section> -->
 
-        <section class="cart" id="cards">
+        <!-- <section class="cart" id="cards">
             <div id="cards">
                     <h3>Products</h3>
                     <img src="${category.image}" alt="${category.name}" />
-                    <div class="button" >
-                        <button id="edit" style="background-color: blue;">Edit</button>
-                       <button id="delete" style="background-color: red;">Delete</button>
-                    </div>
+                    
             </div>
             
+        </section> -->
+
+
+
+
+        <section class="cart" id="cards">
+            <div id="cards">
+
+               
+                <h3>Products</h3>
+                <div class="dropdown">
+                    <span class="dots-icon">⋮</span>
+                    <div class="dropdown-menu">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+                <img src="${category.image}" alt="${category.name}" />
+                
+            </div>
         </section>
+
+
+
+
+
+
     </div>
 
     <div id="modal" class="modal">

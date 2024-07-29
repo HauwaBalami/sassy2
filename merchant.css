@@ -193,6 +193,9 @@ header .notifications .user-profile img {
     width: 250px;
     height: 380px;
 }
+.cards{
+    position: relative;
+}
 .charts {
     display: flex;
     justify-content: space-between;
@@ -333,4 +336,41 @@ input{
 .categories-list h3{
      font-size: 20px;
 }
-  
+
+
+
+/* dropdown */
+
+
+.dots-icon {
+    cursor: pointer;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f0f0f0;
+}
