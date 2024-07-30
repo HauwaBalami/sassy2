@@ -160,7 +160,7 @@ $(document).ready(function () {
 
 
     // Toggle dropdown menu
-    $('.dots-icon').on('click', function (event) {
+    $(document).on('click', '.dots-icon', function (event) {
         event.stopPropagation(); // Prevent the event from bubbling up to the window click event
         $(this).next('.dropdown-menu').toggle(); // Toggle visibility of the dropdown menu
     });
