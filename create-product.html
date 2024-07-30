@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="create-product.css">
     <title>Create Product Page</title>
 </head>
@@ -40,10 +43,10 @@
             <input type="number" id="max_qty" name="max_qty" required><br>
 
             <label for="max_qty">Discount:</label>
-            <input type="number" id="discount" name="discount" required><br>
+            <input type="number" id="discount" name="discount"><br>
             
             <label for="max_qty">Discount Expiration:</label>
-            <input type="number" id="discount_expiration" name="discount" required><br>
+            <input type="text" id="discount_expiration" name="discount"><br>
 
             <label for="has_refund_policy">Has Refund Policy</label>
             <input type="checkbox" id="has_refund_policy" name="has_refund_policy">
@@ -59,14 +62,14 @@
 
             <label for="shipping_locations">Shipping Locations</label>
             <select id="shipping_locations" name="shipping_locations">
-            <option value="">Select Shipping Locations</option>
-            <option value="Nigeria">Nigeria</option>
-            <option value="Ghana">Ghana</option>
-            <option value="Egypt">Egypt</option>
+            <option value="" id="">Select Shipping Locations</option>
+            <option value="Nigeria" id="nigeria">Nigeria</option>
+            <option value="Ghana" id="ghana">Ghana</option>
+            <option value="Egypt" id="egypt">Egypt</option>
             </select>
     
-            <label for="shipping_locations">Shipping Locations (comma-separated):</label>
-            <input type="text" id="shipping_locations" name="shipping_locations" required><br>
+            <!-- <label for="shipping_locations">Shipping Locations (comma-separated):</label>
+            <input type="text" id="shipping_locations" name="shipping_locations" required><br> -->
     
             <h2>Variations</h2>
             <div id="variations">
@@ -103,5 +106,6 @@
         </form>
         <div id="result"></div>
      <script src="create-product.js"></script>
+     <script src="merchant.js"></script>
 </body>
 </html>
