@@ -189,7 +189,6 @@ $(document).ready(function () {
 
 
 
-<<<<<<< HEAD
         if (existingCategory.length > 0) {
             existingCategory.find('.category-name').text(category.name);
             existingCategory.find('.category-image').attr('src', category.image);
@@ -204,11 +203,8 @@ $(document).ready(function () {
             categoryList.append(categoryItem);
         }
     }
-    /*Delete a category******************************************************************************** */
       
     
     
     
-=======
->>>>>>> 281e0e614ca1055409a57f82c16b53f3161b7232
-})
+)
