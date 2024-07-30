@@ -569,3 +569,31 @@ footer a {
 .social img {
     width: 13px;
 }
+
+
+
+
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 2rem;
+    color: lightgray;
+}
+
+.star:hover,
+.star:hover ~ .star,
+.star.selected,
+.star.selected ~ .star {
+    color: gold;
+}
+
+#rating-value {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}

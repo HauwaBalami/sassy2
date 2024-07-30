@@ -224,6 +224,33 @@ $(document).ready(function () {
         }, 300); // Adjust the delay as needed
     });
     
+
+
+
+
+
+    const stars = $('.star');
+    const ratingValue = $('#rating-value');
+    let selectedRating = 0;
+
+    stars.on('click', function() {
+        selectedRating = $(this).data('value');
+        ratingValue.text(`Rating: ${selectedRating}`);
+
+        stars.removeClass('selected');
+        $(this).addClass('selected');
+        $(this).prevAll().addClass('selected');
+    });
+
+    stars.on('mouseenter', function() {
+        stars.removeClass('hover');
+        $(this).addClass('hover');
+        $(this).prevAll().addClass('hover');
+    });
+
+    stars.on('mouseleave', function() {
+        stars.removeClass('hover');
+    });
     
 
 
