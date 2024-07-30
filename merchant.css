@@ -410,3 +410,12 @@ input{
     color: red;
     font-size: 8px;
 }
+
+
+.card-ex{
+    display: flex;
+    flex-direction: column;
+    box-shadow: #6c757d;
+}
+
+
