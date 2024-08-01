@@ -141,6 +141,8 @@
 
 $(document).ready(function() {
     const endPoint = 'http://ecommerce.reworkstaging.name.ng/v2';
+
+    
     
     $("#nigeria").click(function() {
         $("#nigText").text("Nigeria");
@@ -155,21 +157,29 @@ $(document).ready(function() {
     $('#product-form').submit(function(event) {
         event.preventDefault();
 
+        
+       
+
         // Retrieve merchant info from localStorage
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
-        if (!registeredInfo || !registeredInfo.id) {
-            alert("Merchant info not found. Please register or login first.");
-            return;
-        }
+        // if (!registeredInfo || !registeredInfo.id) {
+        //     alert("Merchant info not found. Please register or login first.");
+        //     return;
+        // }
         const merchant_id = registeredInfo.id;
-
+        
         // Retrieve category info from localStorage
         const categoryInfo = JSON.parse(localStorage.getItem('category-info'));
-        if (!categoryInfo || !categoryInfo.id) {
+        // if (!categoryInfo || !categoryInfo.id) {
+        //     alert("Category info not found. Please select a category first.");
+        //     return;
+        // }
+        if (!categoryInfo || categoryInfo.length === 0) {
             alert("Category info not found. Please select a category first.");
             return;
         }
-        const category_id = categoryInfo.id;
+        const category_id = categoryInfo[categoryInfo.length - 1].id;
+        // const category_id = categoryInfo;
         
         // Debugging: Log the category_id to console
         console.log("Category ID:", category_id);
