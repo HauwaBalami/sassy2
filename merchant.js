@@ -451,10 +451,14 @@ $(document).ready(function () {
 
     // Function to fetch product details by product_id
     function fetchProductDetails(productId) {
+        const productInfo = JSON.parse(localStorage.getItem('product-info')) 
+        // const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
+        // const productId = productInfo.id;
         
         $.ajax({
             url: `${endPoint}/products/${productId}`,
             method: 'GET',
+            // data:{productId:product_id},
             success: function(response) {
                 console.log('Product details:', response);
                 
