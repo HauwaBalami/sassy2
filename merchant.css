@@ -375,7 +375,7 @@ input{
     border: none;
     cursor: pointer;
 }
-
+.pro
 
 
 .modal-details-update{
@@ -419,10 +419,16 @@ input{
 }
 /*Product append styling section*/
 .product-list {
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 20px; */
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
+    justify-content: center;
+    text-align: center;
 }
+
 .product-item {
     background-color: #fff;
     border: none;
@@ -443,10 +449,16 @@ input{
 
 /*Get all products for a particular merchant*/
 .product-list1 {
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 20px; */
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
+    justify-content: center;
+    text-align: center;
 }
+
 .product-item1 {
     background-color: #fff;
     border: none;
