@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Dashboard</title>
     <link rel="stylesheet" href="merchant.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo">
@@ -16,32 +19,30 @@
         </div>
         <nav>
             <ul>
-                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <!-- <li id="open-modal"><a href="#"><i class="fas fa-th"></i> Create Category <span
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                <li id="open-modal"><a href="#"><i class="fas fa-th"></i>Create Category <span
                             class="badge">9</span></a></li>
-                <li id="all-categories"><a href="#"><i class="fas fa-th"></i> All Categories <span class="badge">9</span></a></li> -->
-                <li id="create-product"><a href="create-product.html"><i class="fas fa-columns"></i>Products</a></li>
-                <li id="open-modal"><a href="#"><i class="fas fa-th"></i> Create Category <span class="badge">5</span></a></li>
-                <li id="all-categories"><a href="#"><i class="fas fa-th"></i> All Categories <span class="badge">30</span></a></li>
-                <li><a href="#"><i class="fas fa-columns"></i> Orders</a></li>
+                <li id="all-categories"><a href="#"><i class="fas fa-th"></i>All Categories <span
+                            class="badge">9</span></a></li>
+                <li id="create-product"><a href="create-product.html"><i class="fas fa-columns"></i>Create Product</a>
+                </li>
+                <li id="all-products"><a href="#"><i class="fas fa-columns"></i>All Products</a></li>
+                
+                <li id="all-merchant-products"><a href="#"><i class="fas fa-columns"></i>Products by Merchant</a></li>
+                <li class="view-product-details"><a href="#"><i class="fas fa-columns"></i>Product Details</a></li>
                 <li><a href="#"><i class="fas fa-cube"></i> Users</a></li>
                 <li><a href="#"><i class="fas fa-box"></i> Reviews</a></li>
                 <li><a href="#"><i class="fas fa-file"></i> Ratings</a></li>
                 <li><a href="#"><i class="fas fa-puzzle-piece"></i> Likes <span class="badge">8</span></a></li>
-                <!-- <li><a href="#"><i class="fas fa-file-alt"></i>  <span class="badge">9</span></a></li> -->
-                <!-- <li><a href="#"><i class="fas fa-edit"></i> Form</a></li> -->
-                <!-- <li><a href="#"><i class="fas fa-table"></i> Tables</a></li>
-                <li><a href="#"><i class="fas fa-chart-bar"></i> Charts <span class="badge new">N</span></a></li> -->
-                <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
-                <!-- <li><a href="#"><i class="fas fa-file"></i> Documents</a></li> -->
+
+
+
+                <!-- <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li> -->
+
             </ul>
         </nav>
         <div class="user">
             <a href="login.html"><button class="btn">Logout</button></a>
-            <!-- <div class="user-info">
-                <p>Jean Reyes</p>
-                <span>online</span>
-            </div> -->
         </div>
     </div>
     <div class="main-content">
@@ -55,115 +56,28 @@
                 </div>
             </div>
         </header>
-        <!-- <section class="cards">
-            <div class="card">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h3>Products</h3>
-                
-                </div>
-            </div>
-            <div class="card">
-                <i class="fas fa-project-diagram"></i>
-                <div>
-                    <h3>Total Sales</h3>
-                    
-                </div>
-            </div>
-            <div class="card">
-                <i class="fas fa-users"></i>
-                <div>
-                    <h3>No. of Orders</h3>
-                    
-                </div>
-            </div>
-        </section> -->
 
-        
-        <!-- <section class="charts">
-            <div class="chart">
-                <h4>Product,Title & Price</h4>
-                 <p>Calculated in last 30 days</p> 
-                <div class="chart-controls">
-                    <button>Month</button> 
-                     <button>Day</button> 
-                </div>
-                <div class="chart-placeholder">
-                    
-                </div>
-            </div>
-            <div class="chart">
-                <h4>Product,Title & Price</h4>
-                <p>Calculated in last 7 days</p> 
-                <div class="chart-controls">
-                    <button>This Month</button>
-                    <button>This Week</button>
-                </div>
-                <div class="chart-placeholder">
-                    <div class="scrollbar">
-                        <div class="cart-image-holder">
-                            <img src="image/cart-1.jpg" alt="">
-                        </div>
-                        <div>
-                            <div class="items-spec">
-                                <h4 style="margin: 0;margin-bottom: 2px;">CONNINGTON WAISTCOAT</h4>
-                                <h5 style="margin: 0;margin-bottom: 2px;">SIZE 10</h5>
-                                <span> 1 ×<span>£395.00</span></span>
-                            </div>
-                            <div>
-                                <a href="" class="remove-item">[REMOVE]</a>
-                            </div>
+        <section>
 
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="chart">
-                <h4>Product,Title & Price</h4>
-                 <p>Calculated in last 7 days</p> 
-                <div class="chart-controls">
-                     <button>Market</button> 
-                     <button>Referral</button> 
-                </div>
-                <div class="chart-placeholder">
-                    <div class="scrollbar">
-                        <div class="cart-image-holder">
-                            <img src="image/cart-1.jpg" alt="">
-                        </div>
-                        <div>
-                            <div class="items-spec">
-                                <h4 style="margin: 0;margin-bottom: 2px;">CONNINGTON WAISTCOAT</h4>
-                                <h5 style="margin: 0;margin-bottom: 2px;">SIZE 10</h5>
-                                <span> 1 ×<span>£395.00</span></span>
-                            </div>
-                            <div>
-                                <a href="" class="remove-item">[REMOVE]</a>
-                            </div>
 
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section class="cart" id="cards">
-            <div id="cards">
-                    <h3>Products</h3>
-                    <img src="${category.image}" alt="${category.name}" />
-                    
-            </div>
             
-        </section> -->
+            
+            
+        </section>
 
 
+        <!-- <div id="cards">
+                    <h3>Products</h3>
+                    <img src="${category.image}" alt="${category.name}" />     
+            </div> -->
 
 
         <section class="cart" id="cards">
             <div class="cards">
 
-               
+
                 <h3>Products</h3>
                 <div class="dropdown">
                     <span class="dots-icon">⋮</span>
@@ -173,50 +87,41 @@
                     </div>
                 </div>
                 <img src="${category.image}" alt="${category.name}" />
-                
+
             </div>
         </section>
 
+        
 
-
-
-
-
-    </div>
-
-        <div class="card-ex">
-            <div class="drop-down">
-                <img src="" alt="drop-down">
-            </div>
-            <h3>Title</h3>
-            <img src="" alt="product">   
-        </div>
+        <div id="product-list"></div>
+        <div id="product-list1"></div>
+         <div id="product-details"></div>
+        
     </div>
     <div id="modal" class="modal">
         <div class="modal-content">
             <!-- <button class="close">X</button> -->
-             
+
             <button class="add" id="add">X</button>
-             <form id="add-category">
-                
+            <form id="add-category">
+
                 <div class="modal-details">
                     <div class="tags-add">
-                       <label>Name</label> 
-                       <input placeholder="Enter Your Name" id="name">
-                    </div> 
+                        <label>Name</label>
+                        <input placeholder="Enter Your Name" id="name">
+                    </div>
                     <div class="tags-add">
-                       <label for="image">Image</label>
-                       <input type="text" id="image" name="image">
-                    </div>  
-                    <button type="submit" class="category">Submit Category</button> 
-               </div>
-             </form>
-            
+                        <label for="image">Image</label>
+                        <input type="text" id="image" name="image">
+                    </div>
+                    <button type="submit" class="category">Submit Category</button>
+                </div>
+            </form>
+
 
         </div>
     </div>
 
-<<<<<<< HEAD
     <!-- Edit Button Category -->
 
     <!-- Modal for editing/updating category -->
@@ -237,11 +142,10 @@
         </div>
     </div>
 
-   
-    
-=======
->>>>>>> 281e0e614ca1055409a57f82c16b53f3161b7232
+
+    <div id="result"></div>
     <script src="merchant.js"></script>
-    <script src="create-product.js"></script>
+    
 </body>
+
 </html>

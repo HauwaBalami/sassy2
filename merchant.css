@@ -417,5 +417,50 @@ input{
     flex-direction: column;
     box-shadow: #6c757d;
 }
+/*Product append styling section*/
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-item {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    width: calc(33.333% - 40px);
+}
+.product-item h3 {
+    margin: 0;
+    font-size: 15px;
+    font-family: me;
+}
+.product-item img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+}
 
-
+/*Get all products for a particular merchant*/
+.product-list1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-item1 {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    width: calc(33.333% - 40px);
+}
+.product-item1 h3 {
+    margin: 0;
+    font-size: 15px;
+    font-family: me;
+}
+.product-item1 img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+}
