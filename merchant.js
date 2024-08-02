@@ -389,6 +389,7 @@ $(document).ready(function () {
         // Fetch products for the merchant
         fetchProductsByMerchant(merchant_id);
     });
+    
     // Function to fetch products by merchant
     function fetchProductsByMerchant(merchant_id) {
         $.ajax({
@@ -425,8 +426,7 @@ $(document).ready(function () {
                     <p>Price: ${product.price}</p>
                     <p>Brand: ${product.brand}</p>
                     <p>Quantity: ${product.quantity}</p>
-                    <img src="${product.image}" alt="${product.title}">
-                    
+                    <img src="${product.image}" alt="${product.title}">   
                 </div>
             `);
         });
@@ -440,8 +440,12 @@ $(document).ready(function () {
     // Event handler for viewing product details
     $(document).on('click', '.view-product-details', function() {
         const productId = $(this).closest('.product-item').data('product-id');
-       
-        fetchProductDetails(productId);
+        if (productId) {
+            fetchProductDetails(productId);
+        } else {
+            console.error('Product ID is undefined');
+        }
+        // fetchProductDetails(productId);
     });
 
 

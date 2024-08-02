@@ -10,6 +10,8 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
   <script src="https://kit.fontawesome.com/3c9ccb8759.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="shop.css" />
   <link rel="stylesheet" href="colorballs.css">
@@ -33,7 +35,7 @@
             <div class="overlay none"></div>
             <div class="mega-menu">
               <ul class="dropdown">
-                <li><a href="shop.html">All</a></li>
+                <li id="js-shop"><a href="shop.html">All</a></li>
                 <li><a href="#">BLOUSES & TOPS</a></li>
                 <li><a href="#">DRESSES</a></li>
                 <li><a href="#">JACKETS & COATS</a></li>
@@ -162,9 +164,11 @@
         carbon footprint low and take responsibility for our impact on the
         planet.
       </p>
+      <button>Show</button>
     </div>
 
     <div>
+      
       <div class="filter-and-sort">
         <div class="sort-controls" id="filter">
           <i class="fas fa-bars"></i>
@@ -789,7 +793,12 @@
       });
 
     })
+
+
+
+    
   </script>
+  <script src="shop.js"></script>
 </body>
 
 </html>
