@@ -252,6 +252,98 @@ $(document).ready(function () {
         stars.removeClass('hover');
     });
     
+    function fetchRatings(productId) {
+        $.ajax({
+            url: `${BASE}/ratings?product_id=${productId}`,
+            method: 'GET',
+            success: function (res) {
+                console.log('Fetched ratings:', res);
+                displayRatings(res); // You can implement displayRatings to show the ratings on the UI
+            },
+            error: function (err) {
+                console.log('Error fetching ratings:', err);
+            }
+        });
+    }
+
+    $('#ratingForm').on('submit', function (e) {
+        e.preventDefault();
+        
+        const formData = {
+            product_id: '123', // Replace with actual product ID
+            user_id: JSON.parse(localStorage.getItem('user')).id, // Assuming user is stored in localStorage
+            text: $('#ratingText').val(),
+            value: selectedRating, // The selected rating value
+        };
+    
+        $.ajax({
+            url: `${BASE}/ratings`,
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function (res) {
+                console.log('Rating created successfully:', res);
+                fetchRatings(formData.product_id); // Refresh the ratings
+            },
+            error: function (err) {
+                console.log('Error creating rating:', err);
+            }
+        });
+    });
+
+
+
+
+    function updateRating(productId, userId) {
+        const updatedRating = {
+            product_id: productId,
+            user_id: userId,
+            text: $('#ratingText').val(),
+            value: selectedRating,
+        };
+    
+        $.ajax({
+            url: `${BASE}/ratings`,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(updatedRating),
+            success: function (res) {
+                console.log('Rating updated successfully:', res);
+                fetchRatings(productId); // Refresh the ratings
+            },
+            error: function (err) {
+                console.log('Error updating rating:', err);
+            }
+        });
+    }
+      
+
+    function deleteRating(productId, userId) {
+        const ratingToDelete = {
+            product_id: productId,
+            user_id: userId,
+        };
+    
+        $.ajax({
+            url: `${BASE}/ratings`,
+            method: 'DELETE',
+            contentType: 'application/json',
+            data: JSON.stringify(ratingToDelete),
+            success: function (res) {
+                console.log('Rating deleted successfully:', res);
+                fetchRatings(productId); // Refresh the ratings
+            },
+            error: function (err) {
+                console.log('Error deleting rating:', err);
+            }
+        });
+    }
+
+
+
+
+
+
 
      
 
