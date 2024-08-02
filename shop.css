@@ -256,23 +256,27 @@ h2 {
 }
 
 .product-container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 95%;
+  margin: auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: auto;
-  /* background-color: red; */
+  
 }
 
 .product-card {
   height: 622px;
-  /* background-color: gray; */
+  
 }
 
 .product-card img {
   height: 500px;
-  padding-top: 30px;
+  /* padding-top: 30px;
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 30px; */
 }
 
 .product-card img:hover {
