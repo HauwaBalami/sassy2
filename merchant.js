@@ -444,7 +444,7 @@ $(document).ready(function () {
     $(document).on('click', '.view-product-details', function() {
         // const productId = $(this).closest('.product-item').data('product-id');
         
-        const productId = JSON.parse(localStorage.getItem('product-info'));
+        const productId = JSON.parse(localStorage.getItem('product-info')).id;
         
         if (productId) {
             fetchProductDetails(productId);
@@ -459,13 +459,13 @@ $(document).ready(function () {
     function fetchProductDetails(productId) {
         $.ajax({
             url: `${endPoint}/products/${productId}`,
-            contentType: 'application/json',
+            // contentType: 'application/json',
             method: 'GET',
-            data: JSON.stringify({productId:productId}),
+            // data: JSON.stringify({productId:productId}),
             success: function(response) {
                 console.log('Product details:', response);
                 
-                renderProductDetails(response.product);
+                renderProductDetails(response);
                 
             },
             error: function(error) {
