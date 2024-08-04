@@ -429,6 +429,13 @@ input{
     justify-content: center;
     text-align: center;
 }
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    text-align: center;
+}
 
 .product-item {
     background-color: #fff;

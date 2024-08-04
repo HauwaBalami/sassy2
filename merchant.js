@@ -335,7 +335,7 @@ $(document).ready(function () {
         
     });
     
-    /*GET ALL PRODUCTS FOR A PARTICULAR MERCHANT*/
+    /*GET ALL PRODUCTS FOR A PARTICULAR MERCHANT & BELONGING TO A PARTICULAR CATEGORY*/
     $('#all-products').click(function () {
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
         const merchant_id = registeredInfo.id;
@@ -381,7 +381,7 @@ $(document).ready(function () {
 
 
 
-
+    /*GET ALL PRODUCT FOR A PARTICULAR MERCHANT */
     $('#all-merchant-products').click(function() {
         // Retrieve merchant info from localStorage
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
