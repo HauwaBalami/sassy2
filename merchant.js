@@ -481,7 +481,7 @@ $(document).ready(function () {
             <img src="${product.images}" alt="${product.title}" style="width: 20%;">  
             <h3>${product.title}</h3>
             <p>Description: ${product.descp}</p>
-            <p>Price: ${product.price}</p> 
+            <p>Price: £${product.price}</p> 
         `);
     }
 
