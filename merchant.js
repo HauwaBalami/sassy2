@@ -478,7 +478,7 @@ $(document).ready(function () {
      // Function to render product details in the UI
      function renderProductDetails(product) {
         $('#product-details').html(`
-            <img src="${product.image}" alt="${product.title}">  
+            <img src="${product.images}" alt="${product.title}">  
             <h3>${product.title}</h3>
             <p>Description: ${product.descp}</p>
             <p>Price: ${product.price}</p> 
