@@ -19,6 +19,7 @@ body {
     justify-content: space-between;
     overflow-y: scroll;
     position: fixed;
+    height: 100%;
 }
 
 .sidebar .logo {
