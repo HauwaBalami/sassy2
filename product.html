@@ -77,7 +77,7 @@
 
 
 
-
+        <button id="view-product-details">View Product Details</button>
 
         <div class="grid-detail">
 
@@ -365,6 +365,15 @@
             </div>
         </footer>
     </div>
+
+    <!-- Dynamically add product details from the API------------------------------------------------------------- -->
+    <div id="product-details" style="display: none;">
+        <h2 id="product-name"></h2>
+        <img id="product-image" src="" alt="">
+        <p id="product-description"></p>
+        <span id="product-price"></span>
+    </div>
+    <!-- --------------------------------------------------------------------------------------- -------------------->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="product.js"></script>

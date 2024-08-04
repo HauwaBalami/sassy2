@@ -434,37 +434,39 @@ $(document).ready(function () {
 
 
 
-   
+
+    // let productId = JSON.parse(localStorage.getItem('product-info'))
+    // productId = productId.id
 
     /*Get a particular product information */
     // Event handler for viewing product details
+    // localStorage.setItem('product-info', JSON.stringify(response.data))
     $(document).on('click', '.view-product-details', function() {
-        const productId = $(this).closest('.product-item').data('product-id');
+        // const productId = $(this).closest('.product-item').data('product-id');
+        
+        const productId = JSON.parse(localStorage.getItem('product-info'));
+        
         if (productId) {
             fetchProductDetails(productId);
         } else {
             console.error('Product ID is undefined');
         }
-        // fetchProductDetails(productId);
+        
     });
 
 
     // Function to fetch product details by product_id
     function fetchProductDetails(productId) {
-        const productInfo = JSON.parse(localStorage.getItem('product-info')) 
-        // const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
-        // const productId = productInfo.id;
-        
         $.ajax({
             url: `${endPoint}/products/${productId}`,
+            contentType: 'application/json',
             method: 'GET',
-            // data:{productId:product_id},
+            data: JSON.stringify({productId:productId}),
             success: function(response) {
                 console.log('Product details:', response);
                 
-               
-                renderProductDetails(response);
-                // productId = productInfo.id
+                renderProductDetails(response.product);
+                
             },
             error: function(error) {
                 console.error('Error fetching product details:', error);
@@ -501,6 +503,11 @@ $(document).ready(function () {
     }
 
 
+
+    
+
+    
+ 
 })
 
 
