@@ -478,27 +478,10 @@ $(document).ready(function () {
      // Function to render product details in the UI
      function renderProductDetails(product) {
         $('#product-details').html(`
-            
+            <img src="${product.image}" alt="${product.title}">  
             <h3>${product.title}</h3>
             <p>Description: ${product.descp}</p>
-            <p>Price: ${product.price}</p>
-            <p>Brand: ${product.brand}</p>
-            <p>Quantity: ${product.quantity}</p>
-            <p>Currency: ${product.currency}</p>
-            <p>Min Qty: ${product.min_qty}</p>
-            <p>Max Qty: ${product.max_qty}</p>
-            <p>Discount: ${product.discount}</p>
-            <p>Discount Expiration: ${product.discount_expiration}</p>
-            <p>Has Refund Policy: ${product.has_refund_policy}</p>
-            <p>Has Discount: ${product.has_discount}</p>
-            <p>Has Shipment: ${product.has_shipment}</p>
-            <p>Has Variation: ${product.has_variation}</p>
-            <p>Shipping Locations: ${product.shipping_locations.join(', ')}</p>
-            <p>Attributes: ${product.attrib.map(attr => `<p>${attr.type}: ${attr.content.map(c => `${c.name}: ${c.value}`).join(', ')}</p>`).join('')}</p>
-            
-            <p>Category ID: ${product.category_id}</p>
-            <p>Merchant ID: ${product.merchant_id}</p>
-            
+            <p>Price: ${product.price}</p> 
         `);
     }
 
