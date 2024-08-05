@@ -166,6 +166,8 @@ $(document).ready(function () {
         });
     }
 
+    /*Delete a category*/
+    
 
 
 
