@@ -166,6 +166,43 @@ $(document).ready(function () {
         });
     }
 
+    /************************************Delete a category*************************************************************/
+    // $(document).on('click', '.delete-btn', function() {
+       
+    //     const categoryInfo = JSON.parse(localStorage.getItem('category-info'));
+    //     category_id = categoryInfo.id
+
+    //     if (category_id) {
+    //         deleteCategory(category_id);
+    //     } else {
+    //         console.error('Category ID is undefined');
+    //     }
+    // });
+
+    // function deleteCategory(category_id) {
+    //     $.ajax({
+    //         url: `${endPoint}/categories/${category_id}`,
+    //         method: 'DELETE',
+    //         success: function(response) {
+    //             console.log('Category deleted:', response);
+                // Remove the category item from the list
+                // Assuming the category-id is unique and mapped to each category element
+                // $(`#categories-list li:contains(${category_id})`).remove();
+                // $(`.cards li:contains(${category_id})`).remove();
+                
+
+            // },
+    //         error: function(jqXHR, textStatus, errorThrown) {
+    //             console.error('Error deleting category:', jqXHR);
+    //             $('#category-error').html(`
+    //                 <p id="error">Error: ${jqXHR.statusText}</p>
+    //                 <p>Status: ${jqXHR.status}</p>
+    //                 <p>Response Text: ${jqXHR.responseText}</p>
+    //                 <p>Error Thrown: ${errorThrown}</p>
+    //             `);
+    //         }
+    //     });
+    // }
 
 
 
@@ -335,7 +372,7 @@ $(document).ready(function () {
         
     });
     
-    /*GET ALL PRODUCTS FOR A PARTICULAR MERCHANT*/
+    /*GET ALL PRODUCTS FOR A PARTICULAR MERCHANT & BELONGING TO A PARTICULAR CATEGORY*/
     $('#all-products').click(function () {
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
         const merchant_id = registeredInfo.id;
@@ -381,7 +418,7 @@ $(document).ready(function () {
 
 
 
-
+    /*GET ALL PRODUCT FOR A PARTICULAR MERCHANT */
     $('#all-merchant-products').click(function() {
         // Retrieve merchant info from localStorage
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
