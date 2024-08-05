@@ -151,7 +151,7 @@ $(document).ready(function () {
                <div class="cards">
 
                
-                <h3>Products</h3>
+                <h3>${category.name}</h3>
                 <div class="dropdown">
                     <span class="dots-icon">⋮</span>
                     <div class="dropdown-menu">
@@ -523,6 +523,9 @@ $(document).ready(function () {
     }
 
 
+    // Delete a product Ajax call
+    
+
 
     
 
@@ -533,4 +536,4 @@ $(document).ready(function () {
 
 
 
-{/* <p>Variations: ${product.variations.map(var => `<p>${var.type}: ${var.content.map(c => `${c.text}`).join(', ')}</p>`).join('')}</p> */}
+/* <p>Variations: ${product.variations.map(var => `<p>${var.type}: ${var.content.map(c => `${c.text}`).join(', ')}</p>`).join('')}</p> */
