@@ -228,76 +228,68 @@ $(document).ready(function () {
 
 
 
-
     const stars = $('.star');
     const ratingValue = $('#rating-value');
     let selectedRating = 0;
-
+    const BASE = 'http://ecommerce.reworkstaging.name.ng/v2'; // Replace with your actual API base URL
+    const productId = JSON.parse(localStorage.getItem('product-info')).id;
+    const user = JSON.parse(localStorage.getItem('user')); // Assuming user is stored in localStorage
+    
+    // Star click event
     stars.on('click', function() {
         selectedRating = $(this).data('value');
         ratingValue.text(`Rating: ${selectedRating}`);
-
+    
         stars.removeClass('selected');
         $(this).addClass('selected');
         $(this).prevAll().addClass('selected');
     });
-
+    
+    // Star hover event
     stars.on('mouseenter', function() {
         stars.removeClass('hover');
         $(this).addClass('hover');
         $(this).prevAll().addClass('hover');
     });
-
+    
     stars.on('mouseleave', function() {
         stars.removeClass('hover');
     });
     
-    function fetchRatings(productId) {
-        $.ajax({
-            url: `${BASE}/ratings?product_id=${productId}`,
-            method: 'GET',
-            success: function (res) {
-                console.log('Fetched ratings:', res);
-                displayRatings(res); // You can implement displayRatings to show the ratings on the UI
-            },
-            error: function (err) {
-                console.log('Error fetching ratings:', err);
-            }
-        });
-    }
-
-    $('#ratingForm').on('submit', function (e) {
+    // Submit rating form
+    $('#ratingForm').on('submit', function(e) {
         e.preventDefault();
-        
+    
         const formData = {
-            product_id: '123', // Replace with actual product ID
-            user_id: JSON.parse(localStorage.getItem('user')).id, // Assuming user is stored in localStorage
+            product_id: productId,
+            user_id: user.id,
             text: $('#ratingText').val(),
-            value: selectedRating, // The selected rating value
+            value: selectedRating,
         };
+    
+        console.log('Form Data:', formData);
     
         $.ajax({
             url: `${BASE}/ratings`,
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(formData),
-            success: function (res) {
+            success: function(res) {
                 console.log('Rating created successfully:', res);
-                fetchRatings(formData.product_id); // Refresh the ratings
+                // fetchRatings(formData.product_id); // Refresh the ratings
             },
-            error: function (err) {
-                console.log('Error creating rating:', err);
+            error: function(err) {
+                console.error('Error creating rating:', err);
+                alert(`Error creating rating: ${err.responseJSON?.message || err.statusText}`);
             }
         });
     });
-
-
-
-
-    function updateRating(productId, userId) {
+    
+    // Update rating
+    function updateRating(productId, user) {
         const updatedRating = {
             product_id: productId,
-            user_id: userId,
+            user_id: user.id,
             text: $('#ratingText').val(),
             value: selectedRating,
         };
@@ -307,21 +299,22 @@ $(document).ready(function () {
             method: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(updatedRating),
-            success: function (res) {
+            success: function(res) {
                 console.log('Rating updated successfully:', res);
                 fetchRatings(productId); // Refresh the ratings
             },
-            error: function (err) {
-                console.log('Error updating rating:', err);
+            error: function(err) {
+                console.error('Error updating rating:', err);
+                alert(`Error updating rating: ${err.responseJSON?.message || err.statusText}`);
             }
         });
     }
-      
-
-    function deleteRating(productId, userId) {
+    
+    // Delete rating
+    function deleteRating(productId, user) {
         const ratingToDelete = {
             product_id: productId,
-            user_id: userId,
+            user_id: user.id,
         };
     
         $.ajax({
@@ -329,21 +322,130 @@ $(document).ready(function () {
             method: 'DELETE',
             contentType: 'application/json',
             data: JSON.stringify(ratingToDelete),
-            success: function (res) {
+            success: function(res) {
                 console.log('Rating deleted successfully:', res);
                 fetchRatings(productId); // Refresh the ratings
             },
-            error: function (err) {
-                console.log('Error deleting rating:', err);
+            error: function(err) {
+                console.error('Error deleting rating:', err);
+                alert(`Error deleting rating: ${err.responseJSON?.message || err.statusText}`);
+            }
+        });
+    }
+    
+    // Fetch ratings
+    // function fetchRatings(productId) {
+    //     if (!productId) {
+    //         console.error('Product ID is undefined or null.');
+    //         return;
+    //     }
+    
+    //     $.ajax({
+    //         url: `${BASE}/products/${productId}/ratings`,
+    //         method: 'GET',
+    //         success: function(res) {
+    //             displayRatings(res);
+    //         },
+    //         error: function(err) {
+    //             console.error('Error fetching ratings:', err);
+    //             alert(`Error fetching ratings: ${err.responseJSON?.message || err.statusText}`);
+    //         }
+    //     });
+    // }
+    
+    // Display ratings
+    function displayRatings(ratings) {
+        const ratingsContainer = $('#ratingsContainer');
+        ratingsContainer.empty(); // Clear existing ratings
+    
+        ratings.forEach(rating => {
+            const ratingElement = `
+                <div class="rating-item">
+                    <p>User: ${rating.user_id}</p>
+                    <p>Rating: ${rating.value}</p>
+                    <p>Comment: ${rating.text}</p>
+                </div>
+            `;
+            ratingsContainer.append(ratingElement);
+        });
+    }
+    
+
+
+
+    
+    const userId = JSON.parse(localStorage.getItem('user')).id; // Assuming user is stored in localStorage
+    const likeButton = $('.like-button');
+    const likeCount = $('.like-count');
+
+    // Function to update the like count and button state
+    function updateLikeStatus(liked, count) {
+        if (liked) {
+            likeButton.addClass('liked');
+        } else {
+            likeButton.removeClass('liked');
+        }
+        likeCount.text(count);
+        console.log(`Updated like count: ${count}`);
+    }
+
+    // Initial check if the user has already liked the product
+    function checkLikeStatus() {
+        $.ajax({
+            url: `${BASE}/liked?product_id=${productId}`,
+            method: 'GET',
+            success: function(res) {
+                const userLiked = res.data ? res.data.some(like => like.user_id === userId) : false;
+                updateLikeStatus(userLiked, res.data ? res.data.length : 0);
+            },
+            error: function(err) {
+                console.error('Error fetching like status:', err);
+                const errorMessage = err.responseJSON && err.responseJSON.message ? 
+                    err.responseJSON.message : 
+                    err.statusText;
+                alert(`Error fetching like status: ${errorMessage}`);
             }
         });
     }
 
+    // Toggle like status
+    likeButton.on('click', function() {
+        const isLiked = likeButton.hasClass('liked');
+        if (isLiked) {
+            // Unlike the product
+            $.ajax({
+                url: `${BASE}/likes`,
+                method: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify({ user_id: userId, product_id: productId }),
+                success: function(res) {
+                    console.log('Like removed successfully:', res);
+                    checkLikeStatus();
+                },
+                error: function(err) {
+                    console.error('Error removing like:', err);
+                }
+            });
+        } else {
+            // Like the product
+            $.ajax({
+                url: `${BASE}/likes`,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ user_id: userId, product_id: productId }),
+                success: function(res) {
+                    console.log('Product liked successfully:', res);
+                    checkLikeStatus();
+                },
+                error: function(err) {
+                    console.error('Error liking product:', err);
+                }
+            });
+        }
+    });
 
-
-
-
-
+    // Initial like status check
+    checkLikeStatus();
 
      
 
