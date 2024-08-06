@@ -62,7 +62,7 @@ $(document).ready(function () {
             const productCard = `
               <div class="product-card">
                 <img src="${product.image}" alt="${product.title}" />
-                <h2><a href="#">${product.title}</a></h2>
+                <h2><a class="view-product-details" href="product.html">${product.title}</a></h2>
                 <div class="color-balls">
                   <p>${product.price}</p>
                 </div>

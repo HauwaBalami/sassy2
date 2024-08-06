@@ -393,8 +393,10 @@ h2{
     font-size: 12px;
     text-decoration: none;
 }
-
-
+/* error message css */
+#error{
+    color: red;
+}
 
 
 
@@ -596,4 +598,9 @@ footer a {
 #rating-value {
     margin-top: 1rem;
     font-size: 1.2rem;
+}
+/* Note styling for #product-details in JS*/
+#product-details{
+    display: flex;
+    gap: 5px;
 }

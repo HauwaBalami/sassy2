@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
 
+    const endPoint = 'http://ecommerce.reworkstaging.name.ng/v2';
+
     var selectedSize = '';
 
     $('.slider').slick({
@@ -228,110 +230,110 @@ $(document).ready(function () {
 
 
 
-    const stars = $('.star');
-    const ratingValue = $('#rating-value');
-    let selectedRating = 0;
-    const BASE = 'http://ecommerce.reworkstaging.name.ng/v2'; // Replace with your actual API base URL
-    const productId = JSON.parse(localStorage.getItem('product-info')).id;
-    const user = JSON.parse(localStorage.getItem('user')); // Assuming user is stored in localStorage
+    // const stars = $('.star');
+    // const ratingValue = $('#rating-value');
+    // let selectedRating = 0;
+    // const BASE = 'http://ecommerce.reworkstaging.name.ng/v2'; // Replace with your actual API base URL
+    // const productId = JSON.parse(localStorage.getItem('product-info')).id;
+    // const user = JSON.parse(localStorage.getItem('user')); // Assuming user is stored in localStorage
     
     // Star click event
-    stars.on('click', function() {
-        selectedRating = $(this).data('value');
-        ratingValue.text(`Rating: ${selectedRating}`);
+    // stars.on('click', function() {
+    //     selectedRating = $(this).data('value');
+    //     ratingValue.text(`Rating: ${selectedRating}`);
     
-        stars.removeClass('selected');
-        $(this).addClass('selected');
-        $(this).prevAll().addClass('selected');
-    });
+    //     stars.removeClass('selected');
+    //     $(this).addClass('selected');
+    //     $(this).prevAll().addClass('selected');
+    // });
     
     // Star hover event
-    stars.on('mouseenter', function() {
-        stars.removeClass('hover');
-        $(this).addClass('hover');
-        $(this).prevAll().addClass('hover');
-    });
+    // stars.on('mouseenter', function() {
+    //     stars.removeClass('hover');
+    //     $(this).addClass('hover');
+    //     $(this).prevAll().addClass('hover');
+    // });
     
-    stars.on('mouseleave', function() {
-        stars.removeClass('hover');
-    });
+    // stars.on('mouseleave', function() {
+    //     stars.removeClass('hover');
+    // });
     
     // Submit rating form
-    $('#ratingForm').on('submit', function(e) {
-        e.preventDefault();
+    // $('#ratingForm').on('submit', function(e) {
+    //     e.preventDefault();
     
-        const formData = {
-            product_id: productId,
-            user_id: user.id,
-            text: $('#ratingText').val(),
-            value: selectedRating,
-        };
+    //     const formData = {
+    //         product_id: productId,
+    //         user_id: user.id,
+    //         text: $('#ratingText').val(),
+    //         value: selectedRating,
+    //     };
     
-        console.log('Form Data:', formData);
+    //     console.log('Form Data:', formData);
     
-        $.ajax({
-            url: `${BASE}/ratings`,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(formData),
-            success: function(res) {
-                console.log('Rating created successfully:', res);
-                // fetchRatings(formData.product_id); // Refresh the ratings
-            },
-            error: function(err) {
-                console.error('Error creating rating:', err);
-                alert(`Error creating rating: ${err.responseJSON?.message || err.statusText}`);
-            }
-        });
-    });
+    //     $.ajax({
+    //         url: `${BASE}/ratings`,
+    //         method: 'POST',
+    //         contentType: 'application/json',
+    //         data: JSON.stringify(formData),
+    //         success: function(res) {
+    //             console.log('Rating created successfully:', res);
+    //             // fetchRatings(formData.product_id); // Refresh the ratings
+    //         },
+    //         error: function(err) {
+    //             console.error('Error creating rating:', err);
+    //             alert(`Error creating rating: ${err.responseJSON?.message || err.statusText}`);
+    //         }
+    //     });
+    // });
     
     // Update rating
-    function updateRating(productId, user) {
-        const updatedRating = {
-            product_id: productId,
-            user_id: user.id,
-            text: $('#ratingText').val(),
-            value: selectedRating,
-        };
+    // function updateRating(productId, user) {
+    //     const updatedRating = {
+    //         product_id: productId,
+    //         user_id: user.id,
+    //         text: $('#ratingText').val(),
+    //         value: selectedRating,
+    //     };
     
-        $.ajax({
-            url: `${BASE}/ratings`,
-            method: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify(updatedRating),
-            success: function(res) {
-                console.log('Rating updated successfully:', res);
-                fetchRatings(productId); // Refresh the ratings
-            },
-            error: function(err) {
-                console.error('Error updating rating:', err);
-                alert(`Error updating rating: ${err.responseJSON?.message || err.statusText}`);
-            }
-        });
-    }
+    //     $.ajax({
+    //         url: `${BASE}/ratings`,
+    //         method: 'PUT',
+    //         contentType: 'application/json',
+    //         data: JSON.stringify(updatedRating),
+    //         success: function(res) {
+    //             console.log('Rating updated successfully:', res);
+    //             fetchRatings(productId); // Refresh the ratings
+    //         },
+    //         error: function(err) {
+    //             console.error('Error updating rating:', err);
+    //             alert(`Error updating rating: ${err.responseJSON?.message || err.statusText}`);
+    //         }
+    //     });
+    // }
     
     // Delete rating
-    function deleteRating(productId, user) {
-        const ratingToDelete = {
-            product_id: productId,
-            user_id: user.id,
-        };
+    // function deleteRating(productId, user) {
+    //     const ratingToDelete = {
+    //         product_id: productId,
+    //         user_id: user.id,
+    //     };
     
-        $.ajax({
-            url: `${BASE}/ratings`,
-            method: 'DELETE',
-            contentType: 'application/json',
-            data: JSON.stringify(ratingToDelete),
-            success: function(res) {
-                console.log('Rating deleted successfully:', res);
-                fetchRatings(productId); // Refresh the ratings
-            },
-            error: function(err) {
-                console.error('Error deleting rating:', err);
-                alert(`Error deleting rating: ${err.responseJSON?.message || err.statusText}`);
-            }
-        });
-    }
+    //     $.ajax({
+    //         url: `${BASE}/ratings`,
+    //         method: 'DELETE',
+    //         contentType: 'application/json',
+    //         data: JSON.stringify(ratingToDelete),
+    //         success: function(res) {
+    //             console.log('Rating deleted successfully:', res);
+    //             fetchRatings(productId); // Refresh the ratings
+    //         },
+    //         error: function(err) {
+    //             console.error('Error deleting rating:', err);
+    //             alert(`Error deleting rating: ${err.responseJSON?.message || err.statusText}`);
+    //         }
+    //     });
+    // }
     
     // Fetch ratings
     // function fetchRatings(productId) {
@@ -354,99 +356,229 @@ $(document).ready(function () {
     // }
     
     // Display ratings
-    function displayRatings(ratings) {
-        const ratingsContainer = $('#ratingsContainer');
-        ratingsContainer.empty(); // Clear existing ratings
+    // function displayRatings(ratings) {
+    //     const ratingsContainer = $('#ratingsContainer');
+    //     ratingsContainer.empty(); // Clear existing ratings
     
-        ratings.forEach(rating => {
-            const ratingElement = `
-                <div class="rating-item">
-                    <p>User: ${rating.user_id}</p>
-                    <p>Rating: ${rating.value}</p>
-                    <p>Comment: ${rating.text}</p>
-                </div>
-            `;
-            ratingsContainer.append(ratingElement);
-        });
-    }
+    //     ratings.forEach(rating => {
+    //         const ratingElement = `
+    //             <div class="rating-item">
+    //                 <p>User: ${rating.user_id}</p>
+    //                 <p>Rating: ${rating.value}</p>
+    //                 <p>Comment: ${rating.text}</p>
+    //             </div>
+    //         `;
+    //         ratingsContainer.append(ratingElement);
+    //     });
+    // }
     
 
 
 
     
-    const userId = JSON.parse(localStorage.getItem('user')).id; // Assuming user is stored in localStorage
-    const likeButton = $('.like-button');
-    const likeCount = $('.like-count');
+    // const userId = JSON.parse(localStorage.getItem('user')).id; // Assuming user is stored in localStorage
+    // const likeButton = $('.like-button');
+    // const likeCount = $('.like-count');
 
     // Function to update the like count and button state
-    function updateLikeStatus(liked, count) {
-        if (liked) {
-            likeButton.addClass('liked');
-        } else {
-            likeButton.removeClass('liked');
-        }
-        likeCount.text(count);
-        console.log(`Updated like count: ${count}`);
-    }
+    // function updateLikeStatus(liked, count) {
+    //     if (liked) {
+    //         likeButton.addClass('liked');
+    //     } else {
+    //         likeButton.removeClass('liked');
+    //     }
+    //     likeCount.text(count);
+    //     console.log(`Updated like count: ${count}`);
+    // }
 
     // Initial check if the user has already liked the product
-    function checkLikeStatus() {
+    // function checkLikeStatus() {
+    //     $.ajax({
+    //         url: `${BASE}/liked?product_id=${productId}`,
+    //         method: 'GET',
+    //         success: function(res) {
+    //             const userLiked = res.data ? res.data.some(like => like.user_id === userId) : false;
+    //             updateLikeStatus(userLiked, res.data ? res.data.length : 0);
+    //         },
+    //         error: function(err) {
+    //             console.error('Error fetching like status:', err);
+    //             const errorMessage = err.responseJSON && err.responseJSON.message ? 
+    //                 err.responseJSON.message : 
+    //                 err.statusText;
+    //             alert(`Error fetching like status: ${errorMessage}`);
+    //         }
+    //     });
+    // }
+
+    // Toggle like status
+    // likeButton.on('click', function() {
+    //     const isLiked = likeButton.hasClass('liked');
+    //     if (isLiked) {
+            // Unlike the product
+            // $.ajax({
+            //     url: `${BASE}/likes`,
+            //     method: 'DELETE',
+            //     contentType: 'application/json',
+            //     data: JSON.stringify({ user_id: userId, product_id: productId }),
+            //     success: function(res) {
+            //         console.log('Like removed successfully:', res);
+            //         checkLikeStatus();
+            //     },
+            //     error: function(err) {
+            //         console.error('Error removing like:', err);
+            //     }
+            // });
+        // } else {
+            // Like the product
+    //         $.ajax({
+    //             url: `${BASE}/likes`,
+    //             method: 'POST',
+    //             contentType: 'application/json',
+    //             data: JSON.stringify({ user_id: userId, product_id: productId }),
+    //             success: function(res) {
+    //                 console.log('Product liked successfully:', res);
+    //                 checkLikeStatus();
+    //             },
+    //             error: function(err) {
+    //                 console.error('Error liking product:', err);
+    //             }
+    //         });
+    //     }
+    // });
+
+    // Initial like status check
+    // checkLikeStatus();
+
+     
+
+
+    const productId = JSON.parse(localStorage.getItem('product-info')).id;
+
+    /*Get Product Details on the Html Pages*/
+    $(document).on('click', '.view-product-details', function() {
+        // const productId = $(this).closest('.product-item').data('product-id');
+        
+        const productId = JSON.parse(localStorage.getItem('product-info')).id;
+        
+        if (productId) {
+            fetchProductDetails(productId);
+        } else {
+            console.error('Product ID is undefined');
+        }
+        
+    });
+    fetchProductDetails(productId);
+function fetchProductDetails(productId) {
         $.ajax({
-            url: `${BASE}/liked?product_id=${productId}`,
+            url: `${endPoint}/products/${productId}`,
             method: 'GET',
-            success: function(res) {
-                const userLiked = res.data ? res.data.some(like => like.user_id === userId) : false;
-                updateLikeStatus(userLiked, res.data ? res.data.length : 0);
+            success: function(response) {
+                console.log('Product details:', response);
+                localStorage.setItem('product-info', JSON.stringify(response))
+                renderProductDetails(response);
             },
-            error: function(err) {
-                console.error('Error fetching like status:', err);
-                const errorMessage = err.responseJSON && err.responseJSON.message ? 
-                    err.responseJSON.message : 
-                    err.statusText;
-                alert(`Error fetching like status: ${errorMessage}`);
+            error: function(error) {
+                console.error('Error fetching product details:', error);
+                $('#product-details').html(`<p id="error">Error: ${error.statusText}</p><p>${error.responseText}</p>`);
             }
         });
     }
 
-    // Toggle like status
-    likeButton.on('click', function() {
-        const isLiked = likeButton.hasClass('liked');
-        if (isLiked) {
-            // Unlike the product
-            $.ajax({
-                url: `${BASE}/likes`,
-                method: 'DELETE',
-                contentType: 'application/json',
-                data: JSON.stringify({ user_id: userId, product_id: productId }),
-                success: function(res) {
-                    console.log('Like removed successfully:', res);
-                    checkLikeStatus();
-                },
-                error: function(err) {
-                    console.error('Error removing like:', err);
-                }
-            });
-        } else {
-            // Like the product
-            $.ajax({
-                url: `${BASE}/likes`,
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ user_id: userId, product_id: productId }),
-                success: function(res) {
-                    console.log('Product liked successfully:', res);
-                    checkLikeStatus();
-                },
-                error: function(err) {
-                    console.error('Error liking product:', err);
-                }
-            });
-        }
-    });
+ function renderProductDetails(product) {
+        // $('#product-details').html(`
+        //     <img src="${product.images}" alt="${product.title}" style="width: 20%;">  
+        //     <h3>${product.title}</h3>
+        //     <p>Description: ${product.descp}</p>
+        //     <p>Price: £${product.price}</p> 
+        // `);
 
-    // Initial like status check
-    checkLikeStatus();
+         $('#product-details').html(`
+            <div>
+                <h3>${product.title}</h3>
+                <p>Description: ${product.descp}</p>
+                <p>Price: £${product.price}</p> 
+                <div class="color-category">
+                    <div class="color-selector1"></div>
+                    <div class="color-selector2"></div>
+                </div>
+                <div class="rating">
+                    <span class="star" data-value="5">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="1">&#9733;</span>
+                </div>
+                <div id="rating-value">Rating: 0</div>
+                <form id="ratingForm" style="display: flex;">
+                    <textarea id="ratingText" placeholder="Enter your review here..."></textarea>
+                    <button type="submit" style="border:50%;">Submit Rating</button>
+                </form>
+                <div id="ratingsContainer"></div>
 
-     
+                <div class="like-container">
+                    <img src="image/likes.png" alt="Like" class="like-button" style="height: 18px;">
+                    <span class="like-count">0</span>
+                </div>
+                <div class="body-size">
+                    <li data-size="SIZE 8" id="size-8">8</li>
+                    <li data-size="SIZE 10" id="size-10">10</li>
+                    <li data-size="SIZE 12" id="size-12">12</li>
+                    <li data-size="SIZE 14" id="size-14">14</li>
+                    <li data-size="SIZE 16" id="size-16">16</li>
+                    <li data-size="SIZE 18" id="size-18">18</li>
+
+                </div>
+                <button class="add-cart" id="add-cart">ADD TO CART</button>
+                <button class="js-register none" id="js-register">REGISTER INTEREST</button>
+                <div class="main right" id="main"></div>
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-heading">
+                        <h3 style="margin-left: 10px;">BAG ITEMS ( 0 )</h3>
+                        <button id="close-cart" class="close-cart"><img src="image/close.png"
+                                class="close-img"></button>
+                    </div>
+                    <div class="sidebar-footer">
+                        <div class="sidebar-bottom ">
+                            <h4 style="font-weight: 200; margin-left: 30px;" class="none">Your bag is empty.</h4>
+                            <div class="items-holder">
+                                <div class="scrollbar">
+                                    <div class="cart-image-holder">
+                                        <img src="${product.images}" alt="${product.title}" style="width: 50%;>
+                                    </div>
+                                    <div>
+                                        <div class="items-spec">
+                                            <h4 style="margin: 0;margin-bottom: 2px;">${product.title}</h4>
+                                            <h5 style="margin: 0;margin-bottom: 2px;">SIZE ${product.size}</h5>
+                                            <span> 1 ×<span>${product.price}</span></span>
+                                        </div>
+                                        <div>
+                                            <a href="" class="remove-item">[REMOVE]</a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <!-- <h3 class="">SUBTOTAL</h3>
+                            <span class="">£200</span> -->
+                        </div>
+                        <div class="total-price">
+                            <h3 style="font-size: 12px;color: #141517;">SUBTOTAL</h3>
+                            <span>£200</span>
+                        </div>
+                        <div class="check-basket">
+                            <button class="go-to-shop none">GO TO THE SHOP</button>
+                            <button class="checkout ">CHECKOUT</button>
+                            <button class="basket ">GO TO BASKET</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <img src="${product.images}" alt="${product.title}" style="width: 30%;">    
+        `);
+    }
 
 })

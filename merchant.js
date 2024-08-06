@@ -472,12 +472,11 @@ $(document).ready(function () {
 
 
 
-    // let productId = JSON.parse(localStorage.getItem('product-info'))
-    // productId = productId.id
+    
 
     /*Get a particular product information */
     // Event handler for viewing product details
-    // localStorage.setItem('product-info', JSON.stringify(response.data))
+    
     $(document).on('click', '.view-product-details', function() {
         // const productId = $(this).closest('.product-item').data('product-id');
         
