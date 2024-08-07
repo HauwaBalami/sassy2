@@ -60,11 +60,11 @@ $(document).ready(function () {
           productContainer.empty(); // Clear previous content
           response.data.forEach(product => {
             const productCard = `
-              <div class="product-card">
+              <div class="product-card" data-id =${product.id}>
                 <img src="${product.image}" alt="${product.title}" />
                 <h2><a class="view-product-details" href="product.html">${product.title}</a></h2>
                 <div class="color-balls">
-                  <p>${product.price}</p>
+                  <p>£${product.price}</p>
                 </div>
               </div>
             `;

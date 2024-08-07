@@ -407,10 +407,11 @@ $(document).ready(function () {
         $('#product-list').empty();
         products.forEach(product => {
             $('#product-list').append(`
-                <div class="product-item">
-                    <img src="${product.image}" alt="${product.title}">
+                <div class="product-item" data-id=${product.id}>
+                    <img src="${product.images}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <p>Price:£${product.price}</>
+                    <button class="delete-product" data-id="${product.id}">Delete</button>
                 </div>
             `);
         });
@@ -457,13 +458,13 @@ $(document).ready(function () {
         $('#product-list1').empty();
         products.forEach(product => {
             $('#product-list1').append(`
-                <div class="product-item1">
+                <div class="product-item1" data-id=${product.id}>
                     <h3>${product.title}</h3>
                     <p>${product.descp}</p>
                     <p>Price: ${product.price}</p>
                     <p>Brand: ${product.brand}</p>
                     <p>Quantity: ${product.quantity}</p>
-                    <img src="${product.image}" alt="${product.title}">   
+                    <img src="${product.images}" alt="${product.title}">   
                 </div>
             `);
         });
@@ -471,38 +472,32 @@ $(document).ready(function () {
 
 
 
-
-    
-
-    /*Get a particular product information */
-    // Event handler for viewing product details
-    
-    $(document).on('click', '.view-product-details', function() {
-        // const productId = $(this).closest('.product-item').data('product-id');
-        
-        const productId = JSON.parse(localStorage.getItem('product-info')).id;
-        
+    $(document).on('click', '.product-card', function() {
+        let productId = $(this).data('id');
         if (productId) {
-            fetchProductDetails(productId);
+            localStorage.setItem('product-info', JSON.stringify({ id: productId }));
+            window.location.href = 'product.html';
         } else {
             console.error('Product ID is undefined');
         }
-        
     });
+    
+    const productInfo = JSON.parse(localStorage.getItem('product-info'));
+
+    if (productInfo && productInfo.id) {
+        fetchProductDetails(productInfo.id);
+    } else {
+        console.error('Product ID is not found in localStorage');
+    }
 
 
-    // Function to fetch product details by product_id
     function fetchProductDetails(productId) {
         $.ajax({
             url: `${endPoint}/products/${productId}`,
-            // contentType: 'application/json',
             method: 'GET',
-            // data: JSON.stringify({productId:productId}),
             success: function(response) {
                 console.log('Product details:', response);
-                
                 renderProductDetails(response);
-                
             },
             error: function(error) {
                 console.error('Error fetching product details:', error);
@@ -511,20 +506,45 @@ $(document).ready(function () {
         });
     }
 
-     // Function to render product details in the UI
-     function renderProductDetails(product) {
+    function renderProductDetails(product) {
         $('#product-details').html(`
-            <img src="${product.images}" alt="${product.title}" style="width: 20%;">  
-            <h3>${product.title}</h3>
-            <p>Description: ${product.descp}</p>
-            <p>Price: £${product.price}</p> 
-        `);
-    }
+           <div class ="product-card" data-id = ${product.id}>
+                <img src="${product.images}" alt="${product.title}" style="width: 30%;">  
+               <h3>${product.title}</h3>
+               <p>Description: ${product.descp}</p>
+               <p>Price: £${product.price}</p> 
+               `)
+        }
 
 
-    // Delete a product Ajax call
+
     
 
+   /*Product Deletion API Call*/
+   $(document).on('click', '.delete-product', function() {
+    let productId = $(this).data('id');
+    if (productId) {
+        deleteProduct(productId);
+    } else {
+        console.error('Product ID is undefined');
+    }
+    });
+
+    function deleteProduct(productId) {
+        $.ajax({
+            method: 'DELETE',
+            url: `${endPoint}/products/${productId}`,
+            success: function(response) {
+            console.log('Product deleted:', response);
+            // Remove the product item from the DOM
+            $(`.product-item[data-id=${productId}]`).remove();
+            },
+            error: function(err) {
+            console.error('Error deleting product:', err);
+            alert('Error deleting product.');
+            }
+        });
+    }
 
     
 

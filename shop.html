@@ -44,6 +44,7 @@
                 <li><a href="#">MOTHER-OF-THE-BRIDE</a></li>
                 <li><a href="#">INSPIRE ME</a></li>
                 <li><a href="#">SALE</a></li>
+                
 
               </ul>
             </div>
@@ -55,7 +56,7 @@
           <li><a href="#">Enquiries</a></li>
           <li><a href="#">OurStores</a></li>
           <li><a href="#">Stockists</a></li>
-
+          <li><a href="merchant.html">Merchant</a></li>
         </ul>
       </div>
 
@@ -164,7 +165,7 @@
         carbon footprint low and take responsibility for our impact on the
         planet.
       </p>
-      <button>Show</button>
+     
     </div>
 
     <div>
@@ -794,6 +795,53 @@
 
     })
 
+    /*This is some product Jquery code for product page*/
+    const endPoint = 'http://ecommerce.reworkstaging.name.ng/v2';
+
+
+    $('#all-products').click(function () {
+        const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
+        const merchant_id = registeredInfo.id;
+        let categoryInfo = JSON.parse(localStorage.getItem('category-info'))
+        const category_id = categoryInfo.id
+        fetchProductsByMerchantAndCategory(merchant_id, category_id); 
+    });
+
+    function fetchProductsByMerchantAndCategory(merchant_id, category_id){
+        $.ajax({
+            method: 'GET',
+            url: `${endPoint}/products`,
+            data: {merchant_id , category_id},
+            success: function (response) {
+                if (response && response.data) {
+                    renderProductList(response.data);
+                } else {
+                    console.error('Invalid response format:', response);
+                }
+            },
+            error: function (err) {
+                console.log(err);
+                alert('Error fetching products.');
+            }
+        });
+    }
+          
+    function renderProductList(products) {
+        $('#product-list').empty();
+        products.forEach(product => {
+            $('#product-list').append(`
+                <div class="product-item" data-id="${product.id}">
+                    <img src="${product.images[0]}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                    <p>Price: £${product.price}</p>
+                </div>
+            `);
+        });
+    }
+
+           
+
+          
 
 
     

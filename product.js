@@ -452,29 +452,36 @@ $(document).ready(function () {
      
 
 
-    const productId = JSON.parse(localStorage.getItem('product-info')).id;
 
-    /*Get Product Details on the Html Pages*/
-    $(document).on('click', '.view-product-details', function() {
-        // const productId = $(this).closest('.product-item').data('product-id');
-        
-        const productId = JSON.parse(localStorage.getItem('product-info')).id;
-        
+
+
+      
+
+    $(document).on('click', '.product-card', function() {
+        let productId = $(this).data('id');
         if (productId) {
-            fetchProductDetails(productId);
+            localStorage.setItem('product-info', JSON.stringify({ id: productId }));
+            window.location.href = 'product.html';
         } else {
             console.error('Product ID is undefined');
         }
-        
     });
-    fetchProductDetails(productId);
-function fetchProductDetails(productId) {
+    
+    const productInfo = JSON.parse(localStorage.getItem('product-info'));
+
+    if (productInfo && productInfo.id) {
+        fetchProductDetails(productInfo.id);
+    } else {
+        console.error('Product ID is not found in localStorage');
+    }
+
+
+    function fetchProductDetails(productId) {
         $.ajax({
             url: `${endPoint}/products/${productId}`,
             method: 'GET',
             success: function(response) {
                 console.log('Product details:', response);
-                localStorage.setItem('product-info', JSON.stringify(response))
                 renderProductDetails(response);
             },
             error: function(error) {
@@ -483,102 +490,98 @@ function fetchProductDetails(productId) {
             }
         });
     }
+    
+    function renderProductDetails(product) {
+        $('#product-details').html(`
+           <div class ="product-card" data-id = ${product.id}>
+               <h3>${product.title}</h3>
+               <p>Description: ${product.descp}</p>
+               <p>Price: £${product.price}</p> 
+               <div class="color-category">
+                   <div class="color-selector1"></div>
+                   <div class="color-selector2"></div>
+               </div>
+               <div class="rating">
+                   <span class="star" data-value="5">&#9733;</span>
+                   <span class="star" data-value="4">&#9733;</span>
+                   <span class="star" data-value="3">&#9733;</span>
+                   <span class="star" data-value="2">&#9733;</span>
+                   <span class="star" data-value="1">&#9733;</span>
+               </div>
+               <div id="rating-value">Rating: 0</div>
+               <form id="ratingForm" style="display: flex;">
+                   <textarea id="ratingText" placeholder="Enter your review here..."></textarea>
+                   <button type="submit" style="border:50%;">Submit Rating</button>
+               </form>
+               <div id="ratingsContainer"></div>
 
- function renderProductDetails(product) {
-        // $('#product-details').html(`
-        //     <img src="${product.images}" alt="${product.title}" style="width: 20%;">  
-        //     <h3>${product.title}</h3>
-        //     <p>Description: ${product.descp}</p>
-        //     <p>Price: £${product.price}</p> 
-        // `);
+               <div class="like-container">
+                   <img src="image/likes.png" alt="Like" class="like-button" style="height: 18px;">
+                   <span class="like-count">0</span>
+               </div>
+               <div class="body-size">
+                   <li data-size="SIZE 8" id="size-8">8</li>
+                   <li data-size="SIZE 10" id="size-10">10</li>
+                   <li data-size="SIZE 12" id="size-12">12</li>
+                   <li data-size="SIZE 14" id="size-14">14</li>
+                   <li data-size="SIZE 16" id="size-16">16</li>
+                   <li data-size="SIZE 18" id="size-18">18</li>
 
-         $('#product-details').html(`
-            <div>
-                <h3>${product.title}</h3>
-                <p>Description: ${product.descp}</p>
-                <p>Price: £${product.price}</p> 
-                <div class="color-category">
-                    <div class="color-selector1"></div>
-                    <div class="color-selector2"></div>
-                </div>
-                <div class="rating">
-                    <span class="star" data-value="5">&#9733;</span>
-                    <span class="star" data-value="4">&#9733;</span>
-                    <span class="star" data-value="3">&#9733;</span>
-                    <span class="star" data-value="2">&#9733;</span>
-                    <span class="star" data-value="1">&#9733;</span>
-                </div>
-                <div id="rating-value">Rating: 0</div>
-                <form id="ratingForm" style="display: flex;">
-                    <textarea id="ratingText" placeholder="Enter your review here..."></textarea>
-                    <button type="submit" style="border:50%;">Submit Rating</button>
-                </form>
-                <div id="ratingsContainer"></div>
+               </div>
+               <button class="add-cart" id="add-cart">ADD TO CART</button>
+               <button class="js-register none" id="js-register">REGISTER INTEREST</button>
+               <div class="main right" id="main"></div>
+               <div class="sidebar" id="sidebar">
+                   <div class="sidebar-heading">
+                       <h3 style="margin-left: 10px;">BAG ITEMS ( 0 )</h3>
+                       <button id="close-cart" class="close-cart"><img src="image/close.png"
+                               class="close-img"></button>
+                   </div>
+                   <div class="sidebar-footer">
+                       <div class="sidebar-bottom ">
+                           <h4 style="font-weight: 200; margin-left: 30px;" class="none">Your bag is empty.</h4>
+                           <div class="items-holder">
+                               <div class="scrollbar">
+                                   <div class="cart-image-holder">
+                                       <img src="${product.images[0]}" alt="${product.title}" style="width: 50%;>
+                                   </div>
+                                   <div>
+                                       <div class="items-spec">
+                                           <h4 style="margin: 0;margin-bottom: 2px;">${product.title}</h4>
+                                           <h5 style="margin: 0;margin-bottom: 2px;">SIZE ${product.size}</h5>
+                                           <span> 1 ×<span>${product.price}</span></span>
+                                       </div>
+                                       <div>
+                                           <a href="" class="remove-item">[REMOVE]</a>
+                                       </div>
 
-                <div class="like-container">
-                    <img src="image/likes.png" alt="Like" class="like-button" style="height: 18px;">
-                    <span class="like-count">0</span>
-                </div>
-                <div class="body-size">
-                    <li data-size="SIZE 8" id="size-8">8</li>
-                    <li data-size="SIZE 10" id="size-10">10</li>
-                    <li data-size="SIZE 12" id="size-12">12</li>
-                    <li data-size="SIZE 14" id="size-14">14</li>
-                    <li data-size="SIZE 16" id="size-16">16</li>
-                    <li data-size="SIZE 18" id="size-18">18</li>
+                                   </div>
 
-                </div>
-                <button class="add-cart" id="add-cart">ADD TO CART</button>
-                <button class="js-register none" id="js-register">REGISTER INTEREST</button>
-                <div class="main right" id="main"></div>
-                <div class="sidebar" id="sidebar">
-                    <div class="sidebar-heading">
-                        <h3 style="margin-left: 10px;">BAG ITEMS ( 0 )</h3>
-                        <button id="close-cart" class="close-cart"><img src="image/close.png"
-                                class="close-img"></button>
-                    </div>
-                    <div class="sidebar-footer">
-                        <div class="sidebar-bottom ">
-                            <h4 style="font-weight: 200; margin-left: 30px;" class="none">Your bag is empty.</h4>
-                            <div class="items-holder">
-                                <div class="scrollbar">
-                                    <div class="cart-image-holder">
-                                        <img src="${product.images}" alt="${product.title}" style="width: 50%;>
-                                    </div>
-                                    <div>
-                                        <div class="items-spec">
-                                            <h4 style="margin: 0;margin-bottom: 2px;">${product.title}</h4>
-                                            <h5 style="margin: 0;margin-bottom: 2px;">SIZE ${product.size}</h5>
-                                            <span> 1 ×<span>${product.price}</span></span>
-                                        </div>
-                                        <div>
-                                            <a href="" class="remove-item">[REMOVE]</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
+                               </div>
+                           </div>
 
 
-                            <!-- <h3 class="">SUBTOTAL</h3>
-                            <span class="">£200</span> -->
-                        </div>
-                        <div class="total-price">
-                            <h3 style="font-size: 12px;color: #141517;">SUBTOTAL</h3>
-                            <span>£200</span>
-                        </div>
-                        <div class="check-basket">
-                            <button class="go-to-shop none">GO TO THE SHOP</button>
-                            <button class="checkout ">CHECKOUT</button>
-                            <button class="basket ">GO TO BASKET</button>
-                        </div>
-                    </div>
-                </div>
+                           <!-- <h3 class="">SUBTOTAL</h3>
+                           <span class="">£200</span> -->
+                       </div>
+                       <div class="total-price">
+                           <h3 style="font-size: 12px;color: #141517;">SUBTOTAL</h3>
+                           <span>£200</span>
+                       </div>
+                       <div class="check-basket">
+                           <button class="go-to-shop none">GO TO THE SHOP</button>
+                           <button class="checkout ">CHECKOUT</button>
+                           <button class="basket ">GO TO BASKET</button>
+                       </div>
+                   </div>
+               </div>
 
-            </div>
-            <img src="${product.images}" alt="${product.title}" style="width: 30%;">    
-        `);
-    }
+           </div>
+           <img src="${product.images}" alt="${product.title}" style="width: 30%;">    
+       `);
+   }
 
+   
+    
+    
 })
