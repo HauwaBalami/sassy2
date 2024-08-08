@@ -403,7 +403,7 @@ $(document).ready(function () {
         $('#product-list').empty();
         products.forEach(product => {
             $('#product-list').append(`
-                <div class="product-item" data-id=${product.id}>
+                <div class="product-item" data-id="${product.id}">
                     <img src="${product.image}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <p>Price:£${product.price}</>
@@ -454,7 +454,7 @@ $(document).ready(function () {
         $('#product-list1').empty();
         products.forEach(product => {
             $('#product-list1').append(`
-                <div class="product-item1" data-id=${product.id}>
+                <div class="product-item1" data-id="${product.id}">
                     <h3>${product.title}</h3>
                     <p>${product.descp}</p>
                     <p>Price: £${product.price}</p>
@@ -504,7 +504,7 @@ $(document).ready(function () {
 
     function renderProductDetails(product) {
         $('#product-details').html(`
-           <div class ="product-card" data-id = ${product.id}>
+           <div class ="product-card" data-id="${product.id}">
                 <img src="${product.images}" alt="${product.title}" style="width: 30%;">  
                <h3>${product.title}</h3>
                <p>Description: ${product.descp}</p>
