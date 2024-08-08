@@ -116,7 +116,7 @@ $(document).ready(function () {
 
     
 
-    // For the get categoreis
+    // For get all categoreis
     $('#all-categories').click(function () {
         let categoryInfo = JSON.parse(localStorage.getItem('category-info'));
         const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
@@ -148,7 +148,7 @@ $(document).ready(function () {
         categoriesList.empty();
         categories.forEach(category => {
             categoriesList.append(`
-               <div class="cards" data-id="${category.id}>
+               <div class="cards" data-id="${category.id}">
 
                
                 <h3>${category.name}</h3>
@@ -156,7 +156,7 @@ $(document).ready(function () {
                     <span class="dots-icon">⋮</span>
                     <div class="dropdown-menu">
                         <button class="edit-btn">Edit</button>
-                        <button class="delete-btn" data-id="${category.id}>Delete</button>
+                        <button class="delete-btn" data-id="${category.id}">Delete</button>
                     </div>
                 </div>
                 <img src="${category.image}" alt="${category.name}" />
@@ -167,38 +167,38 @@ $(document).ready(function () {
     }
 
     /************************************Delete a category*************************************************************/
-    // $(document).on('click', '.delete-btn', function() {
+    $(document).on('click', '.delete-btn', function() {
        
-    //     let category_id = $(this).data('id');
-    //     if (category_id) {
-    //         deleteCategory(category_id);
-    //     } else {
-    //         console.error('Category ID is undefined');
-    //     }
-    // });
+        let category_id = $(this).data('id');
+        if (category_id) {
+            deleteCategory(category_id);
+        } else {
+            console.error('Category ID is undefined');
+        }
+    });
 
-    // function deleteCategory(category_id) {
-    //     $.ajax({
-    //         url: `${endPoint}/categories/${category_id}`,
-    //         method: 'DELETE',
-    //         success: function(response) {
-    //             alert('Category deleted:', response);
-    //             $(`.cards[data-id=${category_id}]`).remove();
+    function deleteCategory(category_id) {
+        $.ajax({
+            url: `${endPoint}/categories/${category_id}`,
+            method: 'DELETE',
+            success: function(response) {
+                alert('Category deleted:', response);
+                $(`.cards[data-id=${category_id}]`).remove();
                 
                 
 
-    //         },
-    //         error: function(jqXHR, textStatus, errorThrown) {
-    //             console.error('Error deleting category:', jqXHR);
-    //             $('#category-error').html(`
-    //                 <p id="error">Error: ${jqXHR.statusText}</p>
-    //                 <p>Status: ${jqXHR.status}</p>
-    //                 <p>Response Text: ${jqXHR.responseText}</p>
-    //                 <p>Error Thrown: ${errorThrown}</p>
-    //             `);
-    //         }
-    //     });
-    // }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Error deleting category:', jqXHR);
+                $('#category-error').html(`
+                    <p id="error">Error: ${jqXHR.statusText}</p>
+                    <p>Status: ${jqXHR.status}</p>
+                    <p>Response Text: ${jqXHR.responseText}</p>
+                    <p>Error Thrown: ${errorThrown}</p>
+                `);
+            }
+        });
+    }
 
 
 
@@ -404,7 +404,7 @@ $(document).ready(function () {
         products.forEach(product => {
             $('#product-list').append(`
                 <div class="product-item" data-id=${product.id}>
-                    <img src="${product.images}" alt="${product.title}">
+                    <img src="${product.image}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <p>Price:£${product.price}</>
                     <button class="delete-product" data-id="${product.id}">Delete</button>
@@ -460,7 +460,7 @@ $(document).ready(function () {
                     <p>Price: £${product.price}</p>
                     <p>Brand: ${product.brand}</p>
                     <p>Quantity: ${product.quantity}</p>
-                    <img src="${product.images}" alt="${product.title}">   
+                    <img src="${product.image}" alt="${product.title}">   
                 </div>
             `);
         });
