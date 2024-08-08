@@ -148,7 +148,7 @@ $(document).ready(function () {
         categoriesList.empty();
         categories.forEach(category => {
             categoriesList.append(`
-               <div class="cards">
+               <div class="cards" data-id="${category.id}>
 
                
                 <h3>${category.name}</h3>
@@ -156,7 +156,7 @@ $(document).ready(function () {
                     <span class="dots-icon">⋮</span>
                     <div class="dropdown-menu">
                         <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
+                        <button class="delete-btn" data-id="${category.id}>Delete</button>
                     </div>
                 </div>
                 <img src="${category.image}" alt="${category.name}" />
@@ -169,9 +169,7 @@ $(document).ready(function () {
     /************************************Delete a category*************************************************************/
     // $(document).on('click', '.delete-btn', function() {
        
-    //     const categoryInfo = JSON.parse(localStorage.getItem('category-info'));
-    //     category_id = categoryInfo.id
-
+    //     let category_id = $(this).data('id');
     //     if (category_id) {
     //         deleteCategory(category_id);
     //     } else {
@@ -184,14 +182,12 @@ $(document).ready(function () {
     //         url: `${endPoint}/categories/${category_id}`,
     //         method: 'DELETE',
     //         success: function(response) {
-    //             console.log('Category deleted:', response);
-                // Remove the category item from the list
-                // Assuming the category-id is unique and mapped to each category element
-                // $(`#categories-list li:contains(${category_id})`).remove();
-                // $(`.cards li:contains(${category_id})`).remove();
+    //             alert('Category deleted:', response);
+    //             $(`.cards[data-id=${category_id}]`).remove();
+                
                 
 
-            // },
+    //         },
     //         error: function(jqXHR, textStatus, errorThrown) {
     //             console.error('Error deleting category:', jqXHR);
     //             $('#category-error').html(`
@@ -461,7 +457,7 @@ $(document).ready(function () {
                 <div class="product-item1" data-id=${product.id}>
                     <h3>${product.title}</h3>
                     <p>${product.descp}</p>
-                    <p>Price: ${product.price}</p>
+                    <p>Price: £${product.price}</p>
                     <p>Brand: ${product.brand}</p>
                     <p>Quantity: ${product.quantity}</p>
                     <img src="${product.images}" alt="${product.title}">   
