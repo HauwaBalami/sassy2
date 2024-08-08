@@ -469,6 +469,7 @@ $(document).ready(function () {
 
 
     $(document).on('click', '.product-card', function() {
+        
         let productId = $(this).data('id');
         if (productId) {
             localStorage.setItem('product-info', JSON.stringify({ id: productId }));
@@ -494,6 +495,8 @@ $(document).ready(function () {
             success: function(response) {
                 console.log('Product details:', response);
                 renderProductDetails(response);
+                localStorage.setItem('product-info', JSON.stringify({ id: productId }))
+                // window.location.href = `product.html?${productId}`
             },
             error: function(error) {
                 console.error('Error fetching product details:', error);

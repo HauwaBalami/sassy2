@@ -27,7 +27,7 @@ $(document).ready(function () {
     $("#add-cart").click(function () {
         // $("#sidebar").css({
         //     "right": "0px",
-        // }
+        // })
 
         // )
         $("#sidebar").addClass("right")
@@ -40,7 +40,13 @@ $(document).ready(function () {
 
     })
 
-
+    // $(document).on('click', '.add-cart', function() {
+    //     $('#sidebar').addClass('right');
+    // });
+    
+    // $('#close-cart').on('click', function() {
+    //     $('#sidebar').removeClass('right');
+    // });
 
     $(".color-selector1").click(function () {
         $(".absolute").show();
@@ -461,7 +467,7 @@ $(document).ready(function () {
         let productId = $(this).data('id');
         if (productId) {
             localStorage.setItem('product-info', JSON.stringify({ id: productId }));
-            window.location.href = 'product.html';
+            window.location.href = `product.html?id=${productId}`;
         } else {
             console.error('Product ID is undefined');
         }
@@ -482,7 +488,9 @@ $(document).ready(function () {
             method: 'GET',
             success: function(response) {
                 console.log('Product details:', response);
+                
                 renderProductDetails(response);
+                
             },
             error: function(error) {
                 console.error('Error fetching product details:', error);
@@ -492,6 +500,8 @@ $(document).ready(function () {
     }
     
     function renderProductDetails(product) {
+
+        
         $('#product-details').html(`
            <div class ="product-card" data-id = ${product.id}>
                <h3>${product.title}</h3>
@@ -520,15 +530,15 @@ $(document).ready(function () {
                    <span class="like-count">0</span>
                </div>
                <div class="body-size">
-                   <li data-size="SIZE 8" id="size-8">8</li>
-                   <li data-size="SIZE 10" id="size-10">10</li>
-                   <li data-size="SIZE 12" id="size-12">12</li>
-                   <li data-size="SIZE 14" id="size-14">14</li>
-                   <li data-size="SIZE 16" id="size-16">16</li>
-                   <li data-size="SIZE 18" id="size-18">18</li>
+                   <li data-id="${product.id}">8</li>
+                   <li  data-id="${product.id}">10</li>
+                   <li  data-id="${product.id}">12</li>
+                   <li  data-id="${product.id}">14</li>
+                   <li  data-id="${product.id}">16</li>
+                   <li  data-id="${product.id}">18</li>
 
                </div>
-               <button class="add-cart" id="add-cart">ADD TO CART</button>
+               <button class="add-cart none" id="add-cart">ADD TO CART</button>
                <button class="js-register none" id="js-register">REGISTER INTEREST</button>
                <div class="main right" id="main"></div>
                <div class="sidebar" id="sidebar">
@@ -562,7 +572,7 @@ $(document).ready(function () {
 
 
                            <!-- <h3 class="">SUBTOTAL</h3>
-                           <span class="">£200</span> -->
+                           <span class="">£${product.price}</span> -->
                        </div>
                        <div class="total-price">
                            <h3 style="font-size: 12px;color: #141517;">SUBTOTAL</h3>
