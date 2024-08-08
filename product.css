@@ -428,8 +428,9 @@ h2{
     justify-content: space-between;
     padding: 0px 20px;
     position: relative;
-    /* z-index: 5; */
+    align-items: center;
 }
+
 
 .menu {
     justify-content: space-between;
