@@ -257,14 +257,12 @@ h2 {
 }
 
 .product-container {
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 95%;
-  margin: auto; */
+  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: auto;
+  justify-content: space-between;
   
 }
 
