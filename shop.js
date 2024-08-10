@@ -1,5 +1,5 @@
 // $(document).ready(function () {
-  
+
 //   const endPoint = 'http://ecommerce.reworkstaging.name.ng/v2';
 //   const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
 //   const merchant_id = registeredInfo.id;
@@ -36,7 +36,7 @@
 //       }
 //     });
 //   })
-    
+
 // });
 
 $(document).ready(function () {
@@ -51,7 +51,7 @@ $(document).ready(function () {
     $.ajax({
       url: `${endPoint}/products`,
       method: 'GET',
-      data: {merchant_id:merchant_id},
+      data: { merchant_id: merchant_id },
       success: function (response) {
         console.log(response); // Log the response to inspect it
 
@@ -79,4 +79,34 @@ $(document).ready(function () {
       }
     });
   });
+
+
+
+  // Alternative code for the shop page
+  // $(document).on('click', '.product-card', function () {
+  //   let productId = $(this).data('id');
+  //   localStorage.setItem('product-info', JSON.stringify(productId));
+  //   console.log(productId)
+
+
+  //   $.ajax({
+  //     url: `${endPoint}/products/${productId}`,
+  //     method: 'GET',
+  //     success: function (response) {
+  //       console.log('Product details:', response);
+  //       window.location.href = `product.html?id=${productId}`;
+        
+
+  //     },
+  //     error: function (error) {
+  //       console.error('Error fetching product details:', error);
+  //       $('#product-details').html(`<p id="error">Error: ${error.statusText}</p><p>${error.responseText}</p>`);
+  //     }
+  //   });
+
+
+  // });
+
+
+
 });

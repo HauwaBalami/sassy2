@@ -467,7 +467,7 @@ $(document).ready(function () {
         let productId = $(this).data('id');
         if (productId) {
             localStorage.setItem('product-info', JSON.stringify({ id: productId }));
-            window.location.href = `product.html?id=${productId}`;
+            // window.location.href = `product.html?id=${productId}`;
         } else {
             console.error('Product ID is undefined');
         }
