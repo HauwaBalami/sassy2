@@ -535,6 +535,7 @@ $(document).ready(function () {
             url: `${endPoint}/products/${productId}`,
             success: function(response) {
             console.log('Product deleted:', response);
+            alert("Product deleted successfully")
             // Remove the product item from the DOM
             $(`.product-item[data-id=${productId}]`).remove();
             },
