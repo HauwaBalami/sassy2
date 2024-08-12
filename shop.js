@@ -45,40 +45,50 @@ $(document).ready(function () {
   const registeredInfo = JSON.parse(localStorage.getItem('registered-info'));
   const merchant_id = registeredInfo.id;
 
-  $('#js-shop').click(function (e) {
-    e.preventDefault(); // Prevent default action if it's a link
-
+  function getProductOnShopPage(){
+    $('.product-container').empty()
     $.ajax({
       url: `${endPoint}/products`,
       method: 'GET',
       data: { merchant_id: merchant_id },
       success: function (response) {
         console.log(response); // Log the response to inspect it
-
-        if (response && Array.isArray(response.data)) {
-          const productContainer = $('.product-container');
-          productContainer.empty(); // Clear previous content
-          response.data.forEach(product => {
-            const productCard = `
-              <div class="product-card" data-id =${product.id}>
-                <img src="${product.image}" alt="${product.title}" />
-                <h2><a class="view-product-details" href="product.html">${product.title}</a></h2>
+        let eachProduct = response.data
+        eachProduct.forEach(function(p){
+          $('.product-container').append(`
+              <div class="product-card" data-id =${p.id}>
+                <img src="${p.image}" alt="${p.title}" />
+                <h2>${p.title}</h2>
                 <div class="color-balls">
-                  <p>£${product.price}</p>
+                  <p>£${p.price}</p>
                 </div>
               </div>
-            `;
-            productContainer.append(productCard);
-          });
-        } else {
-          console.error('Unexpected response format:', response);
-        }
+          `)
+        })
       },
       error: function (error) {
         console.log('Error fetching products:', error);
       }
     });
-  });
+  }
+  getProductOnShopPage()
+
+  $(document).on('click', '.product-card', function(){
+    let product_id = $(this).data('id')
+
+    $.ajax({
+      url: `${endPoint}/products/${product_id}`,
+      method: 'GET',
+      success: function(res){
+        window.location.href = `product.html?id=${product_id}`
+      },
+      error: function(err){
+        console.log(err);
+      }
+    })
+    
+    
+  })
 
 
 

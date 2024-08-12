@@ -40,13 +40,7 @@ $(document).ready(function () {
 
     })
 
-    // $(document).on('click', '.add-cart', function() {
-    //     $('#sidebar').addClass('right');
-    // });
-    
-    // $('#close-cart').on('click', function() {
-    //     $('#sidebar').removeClass('right');
-    // });
+   
 
     $(".color-selector1").click(function () {
         $(".absolute").show();
@@ -120,34 +114,25 @@ $(document).ready(function () {
     // Load cart items on page load
     loadCartItems();
 
-    // $('.body-size li').on('click', function(){
-    //     if(selectedSize === 14 || 16 || 18 ){
-    //         $('.add-cart').hide()
-    //         $('.js-register').show()    
+  
+
+    // $('.body-size li').click(function() {
+    //     $('.body-size li').removeClass('selected');
+    //     $(this).addClass('selected');
+    //     selectedSize = $(this).data('size');
+
+    //     if(selectedSize === '14' || selectedSize === '16' || selectedSize === '18' ){
+    //         $('.add-cart').addClass('none')
+    //         $('.js-register').removeClass('none')    
     //     }else{
-    //         $('.js-register').hide()
-    //         $('.add-cart').show() 
+    //         $('.js-register').removeClass('none')
+    //         $('.add-cart').addClass('none') 
     //     }
-
-    // })
-
-    $('.body-size li').click(function() {
-        $('.body-size li').removeClass('selected');
-        $(this).addClass('selected');
-        selectedSize = $(this).data('size');
-
-        if(selectedSize === '14' || selectedSize === '16' || selectedSize === '18' ){
-            $('.add-cart').addClass('none')
-            $('.js-register').removeClass('none')    
-        }else{
-            $('.js-register').removeClass('none')
-            $('.add-cart').addClass('none') 
-        }
 
        
         
         
-    });
+    // });
 
 
     $('#add-cart').click(function() {
@@ -156,10 +141,7 @@ $(document).ready(function () {
         var productPrice = $(this).data('price');
         var productImage = $(this).data('image');
 
-        // if (!selectedSize || selectedSize === '14' ||  selectedSize === '16' || selectedSize === '18' ) {
-        //     alert('Please select a size.');
-        //     return;
-        // }
+        
        
 
         var newItem = {
@@ -456,57 +438,24 @@ $(document).ready(function () {
     // checkLikeStatus();
 
      
-
-
-
-
-
-      
-
-    $(document).on('click', '.product-card', function() {
-        let productId = $(this).data('id');
-        if (productId) {
-            localStorage.setItem('product-info', JSON.stringify({ id: productId }));
-            window.location.href = `product.html?id=${productId}`;
-        } else {
-            console.error('Product ID is undefined');
-        }
-    });
+    let urlParam = new URLSearchParams(window.location.search)
+    let product_id = urlParam.get('id')
+    console.log(product_id);
     
-    const productInfo = JSON.parse(localStorage.getItem('product-info'));
-
-    if (productInfo && productInfo.id) {
-        fetchProductDetails(productInfo.id);
-    } else {
-        console.error('Product ID is not found in localStorage');
-    }
 
 
-    function fetchProductDetails(productId) {
+    function fetchProductDetails() {
         $.ajax({
-            url: `${endPoint}/products/${productId}`,
+            url: `${endPoint}/products/${product_id}`,
             method: 'GET',
-            success: function(response) {
-                console.log('Product details:', response);
-                
-                renderProductDetails(response);
-                
-            },
-            error: function(error) {
-                console.error('Error fetching product details:', error);
-                $('#product-details').html(`<p id="error">Error: ${error.statusText}</p><p>${error.responseText}</p>`);
-            }
-        });
-    }
-    
-    function renderProductDetails(product) {
+            success: function(res) {
+                console.log('Product details:', res);
 
-        
-        $('#product-details').html(`
-           <div class ="product-card" data-id = ${product.id}>
-               <h3>${product.title}</h3>
-               <p>Description: ${product.descp}</p>
-               <p>Price: £${product.price}</p> 
+                let productDetail = `
+                    <div class ="product-card" data-id = ${res.id}>
+               <h3>${res.title}</h3>
+               <p>Description: ${res.descp}</p>
+               <p>Price: £${res.price}</p> 
                <div class="color-category">
                    <div class="color-selector1"></div>
                    <div class="color-selector2"></div>
@@ -530,12 +479,12 @@ $(document).ready(function () {
                    <span class="like-count">0</span>
                </div>
                <div class="body-size">
-                   <li data-id="${product.id}">8</li>
-                   <li  data-id="${product.id}">10</li>
-                   <li  data-id="${product.id}">12</li>
-                   <li  data-id="${product.id}">14</li>
-                   <li  data-id="${product.id}">16</li>
-                   <li  data-id="${product.id}">18</li>
+                   <li data-id="">8</li>
+                   <li  data-id="">10</li>
+                   <li  data-id="">12</li>
+                   <li  data-id="">14</li>
+                   <li  data-id="">16</li>
+                   <li  data-id="">18</li>
 
                </div>
                <button class="add-cart none" id="add-cart">ADD TO CART</button>
@@ -553,13 +502,13 @@ $(document).ready(function () {
                            <div class="items-holder">
                                <div class="scrollbar">
                                    <div class="cart-image-holder">
-                                       <img src="${product.images[0]}" alt="${product.title}" style="width: 50%;>
+                                       <img src="${res.images[0]}" alt="${res.title}" style="width: 50%;>
                                    </div>
                                    <div>
                                        <div class="items-spec">
-                                           <h4 style="margin: 0;margin-bottom: 2px;">${product.title}</h4>
-                                           <h5 style="margin: 0;margin-bottom: 2px;">SIZE ${product.size}</h5>
-                                           <span> 1 ×<span>${product.price}</span></span>
+                                           <h4 style="margin: 0;margin-bottom: 2px;">${res.title}</h4>
+                                           <h5 style="margin: 0;margin-bottom: 2px;">SIZE ${res.size}</h5>
+                                           <span> 1 ×<span>${res.price}</span></span>
                                        </div>
                                        <div>
                                            <a href="" class="remove-item">[REMOVE]</a>
@@ -572,7 +521,7 @@ $(document).ready(function () {
 
 
                            <!-- <h3 class="">SUBTOTAL</h3>
-                           <span class="">£${product.price}</span> -->
+                           <span class="">£${res.price}</span> -->
                        </div>
                        <div class="total-price">
                            <h3 style="font-size: 12px;color: #141517;">SUBTOTAL</h3>
@@ -587,9 +536,17 @@ $(document).ready(function () {
                </div>
 
            </div>
-           <img src="${product.images}" alt="${product.title}" style="width: 30%;">    
-       `);
-   }
+           <img src="${res.images}" alt="${res.title}" style="width: 30%;">
+                `;
+                $('#product-details').html(productDetail)
+            },
+            error: function(error) {
+                console.error('Error fetching product details:', error);
+                $('#product-details').html(`<p id="error">Error: ${error.statusText}</p><p>${error.responseText}</p>`);
+            }
+        });
+    }
+    fetchProductDetails()
 
    
     
